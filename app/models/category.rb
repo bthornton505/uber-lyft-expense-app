@@ -1,3 +1,4 @@
 class Category < ActiveRecord::Base
-
-end 
+  has_many :expense_categories
+  has_many :expenses, through: :expense_categories
+end
