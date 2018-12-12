@@ -1,3 +1,4 @@
 class ExpenseCategory < ActiveRecord::Base
-
-end 
+  belongs_to :expense
+  belongs_to :category 
+end
