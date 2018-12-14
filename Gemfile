@@ -27,6 +27,12 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+
+# OmniAuth allows a user to login using a third-party API
+gem 'omniauth'
+# OmniAuth-Github allows a user to login using their Github login info
+gem 'omniauth-github'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
