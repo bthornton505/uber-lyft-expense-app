@@ -1,7 +1,7 @@
 class ExpenseReportsController < ApplicationController
 
   def index
-    @expense_reports = ExpenseReport.all 
+
   end
 
   def new
@@ -13,7 +13,7 @@ class ExpenseReportsController < ApplicationController
     binding.pry
     if @expense_report.valid?
       flash[:message] = "Successfully created new expense report!"
-      redirect_to user_expense_report_path(@expense_report)
+      redirect_to expense_report_path(@expense_report)
     else
       render :new
     end
