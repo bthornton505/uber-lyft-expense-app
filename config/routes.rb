@@ -8,4 +8,7 @@ Rails.application.routes.draw do
 
   resources :users
 
+  # Routes for omniauth-github login
+  get '/auth/github/callback' => 'sessions#create'
+
 end
