@@ -32,6 +32,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'omniauth'
 # OmniAuth-Github allows a user to login using their Github login info
 gem 'omniauth-github'
+# Dotenv-rails helps to ensure that environment variables are correctly loaded into the ENV hash in a secure manner
+gem 'dotenv-rails'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
