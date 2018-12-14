@@ -34,6 +34,8 @@ gem 'omniauth'
 gem 'omniauth-github'
 # Dotenv-rails helps to ensure that environment variables are correctly loaded into the ENV hash in a secure manner
 gem 'dotenv-rails'
+# Thin allows server to use https protocal
+gem 'thin'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
