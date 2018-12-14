@@ -1,0 +1,9 @@
+<h1><%= @expense_report.user.name %>'s Expense Reports</h1>
+
+<ul>
+  <p>
+    <% @expense_reports.each do |expense_report| %>
+    <li><%= expense_report.month %> | <%= expense_report.year %></li>
+    <% end %>
+  </p>
+</ul>
