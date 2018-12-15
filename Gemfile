@@ -38,7 +38,7 @@ gem 'dotenv-rails'
 gem 'thin'
 
 # Bootstrap is gem to help with frontend design
-gem 'bootstrap'
+gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
 
 # Use ActiveStorage variant
