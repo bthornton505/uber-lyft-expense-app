@@ -37,6 +37,10 @@ gem 'dotenv-rails'
 # Thin allows server to use https protocal
 gem 'thin'
 
+# Bootstrap is gem to help with frontend design
+gem 'bootstrap'
+gem 'jquery-rails'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
