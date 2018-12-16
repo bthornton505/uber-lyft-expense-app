@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'welcome#home'
 
   resources :users do
-    resources :expense_reports, shallow: true 
+    resources :expense_reports, shallow: true
   end
 
   # resources :expense_reports do
