@@ -1,7 +1,7 @@
 <h1>Hi <%= @user.name %>!</h1>
 
-
-
+<%= link_to "View Expense Reports", "/users/#{@user.id}/expense_reports" %>
+<br>
 <%= link_to "New Expense Report", "/users/#{@user.id}/expense_reports/new" %>
 <br>
 <%= link_to "Sign Out", logout_path, method: :delete %>
