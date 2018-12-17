@@ -6,10 +6,10 @@ Rails.application.routes.draw do
     resources :expense_reports, shallow: true
   end
 
-  # resources :expense_reports do
-  #   resources :expenses
-  # end
-
+# Routes to create expenses under associated expense_report
+  get '/expense_reports/:expense_report_id/expenses/new' => 'expenses#new', :as => :new_expense_report_expense
+  get '/expense_reports/:expense_report_id/expenses' => 'expenses#index', :as => :expense_report_expenses
+  post '/expense_reports/:expense_report_id/expenses' => 'expenses#create'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
