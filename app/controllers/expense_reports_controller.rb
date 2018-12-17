@@ -8,10 +8,10 @@ class ExpenseReportsController < ApplicationController
     if params[:user_id] && current_user.id == params[:user_id].to_i
       @user = current_user
       @expense_reports = @user.expense_reports
-    elsif params[:user_id]
-      redirect_to expense_report_path
+    elsif params[:user_id] != current_user
+      redirect_to root_url
     else
-      @expense_reports = ExpenseReport.all
+      redirect_to user_path(@user)
     end
   end
 
