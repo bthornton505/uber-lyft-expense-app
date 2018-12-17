@@ -1,4 +1,14 @@
 <h1><%= @expense_report.month %> | <%= @expense_report.year %></h1>
 
+<br>
 
+<h4>Expenses</h4>
+
+<!-- <ul>
+
+</ul> -->
+
+<br>
+
+<%= link_to "Add Expense", new_expense_report_expense_path(@expense_report) %> |
 <%= link_to "Profile", user_path(@expense_report.user) %>
