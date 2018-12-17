@@ -1,9 +1,9 @@
 <h1><%= @user.name %>'s Expense Reports</h1>
 
-<ul>
+<ul> <!-- Eventually need to turn this into a table -->
   <p>
     <% @expense_reports.each do |expense_report| %>
-    <li><%= expense_report.month %> | <%= expense_report.year %></li>
+    <li><%= expense_report.month %> | <%= expense_report.year %> | <%= link_to "View", expense_report_path(expense_report) %></li>
     <% end %>
   </p>
 </ul>
