@@ -16,4 +16,9 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  # def current_expense_report
+  #   @current_expense_report ||= ExpenseReport.find(@expense_report.id)
+  # end
+  # helper_method :current_expense_report
+
 end
