@@ -2,12 +2,13 @@ class ExpenseReportsController < ApplicationController
 
   def show
     @expense_report = ExpenseReport.find_by(id: params[:id])
+    @expenses = Expense.all.select {|e| e.expense_report_id == @expense_report.id}
   end
 
   def index # Logic still needs work. Eventually needs to be refactored.
     if params[:user_id] && current_user.id == params[:user_id].to_i
       @user = current_user
-      @expense_reports = @user.expense_reports 
+      @expense_reports = @user.expense_reports
     elsif params[:user_id] != current_user # I want this to redirect_to a users profile if they try to perform action on another users page
       redirect_to root_url                # Also show them a warning that says this action cannot be done
     else
@@ -15,7 +16,7 @@ class ExpenseReportsController < ApplicationController
     end
   end
 
-  def new
+  def new # Logic still needs work. Eventually needs to be refactored.
     if params[:user_id] && current_user.id == params[:user_id].to_i
       @user = current_user
       @expense_report = ExpenseReport.new(user_id: params[:user_id])
