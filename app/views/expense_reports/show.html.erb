@@ -4,11 +4,14 @@
 
 <h4>Expenses</h4>
 
-<!-- <ul>
-
-</ul> -->
+<ul>
+  <% @expenses.each do |expense| %>
+    <li>Month: <%= expense.month %> | Cost: $<%= expense.cost %> | <%= link_to "View" %></li>
+  <% end %>
+</ul>
 
 <br>
 
 <%= link_to "Add Expense", new_expense_report_expense_path(@expense_report) %> |
+<!-- I want a link here to direct a user back to their expense reports -->
 <%= link_to "Profile", user_path(@expense_report.user) %>
