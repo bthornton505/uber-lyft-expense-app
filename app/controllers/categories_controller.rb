@@ -1,5 +1,9 @@
 class CategoriesController < ApplicationController
 
+  def show
+    @category = Category.find_by(params[:id])
+  end
+
   def new
     @category = Category.new
   end
@@ -12,7 +16,7 @@ class CategoriesController < ApplicationController
     else
       flash[:message] = "Not a valid category"
       redirect_to new_expense_report_expense_path(@user.expense_reports)
-    end 
+    end
 
   end
 
