@@ -1,8 +1,13 @@
 class ExpensesController < ApplicationController
 
+  def show
+    @expense = Expense.find_by(id: params[:id])
+  end
+
   def new
     @expense_report = ExpenseReport.find(params[:expense_report_id])
     @expense = Expense.new(:expense_report => @expense_report)
+    @category = Category.new
   end
 
   def create
@@ -15,7 +20,7 @@ class ExpensesController < ApplicationController
     else
       render :new
     end
-    
+
   end
 
 
