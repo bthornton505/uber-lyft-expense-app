@@ -14,10 +14,11 @@ class ExpensesController < ApplicationController
   def create
     @expense = Expense.new(expense_params)
     @expense_report = ExpenseReport.find(params[:expense_report_id])
+    @category = Category.find_by(params[:id])
 
     if @expense.save
       flash[:message] = "Successfully created new expense"
-      redirect_to expense_path(@expense)
+      redirect_to expense_path(@expense, @category)
     else
       render :new
     end
