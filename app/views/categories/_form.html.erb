@@ -1,8 +1,7 @@
 <%= form_for @category do |f| %>
 
-  <%= f.label :name, "Category:" %>
-  <%= f.text_field :name %>
+  <%= f.collection_select(:name, Category.all, :id, :name, {prompt: 'Select Category'}) %>
 
-  <%= f.submit "Add Category" %>
+  <%# <%= f.submit "", :style => "display: none;" %> 
 
 <% end %>
