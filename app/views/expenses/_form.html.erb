@@ -8,7 +8,7 @@
   <%= f.number_field :cost %>
 
   <!-- Need to add form for selecting a category -->
-  <%# <%= render partial: "categories/form", locals: {expense_category: @category} %> %>
+  <%= render partial: "categories/form", locals: {category: @category} %>
   <!-- Then add collection select to go through already created categories -->
 
 
