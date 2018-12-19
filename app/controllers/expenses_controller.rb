@@ -9,12 +9,14 @@ class ExpensesController < ApplicationController
     @expense_report = ExpenseReport.find(params[:expense_report_id])
     @expense = Expense.new(:expense_report => @expense_report)
     @category = Category.new
+    @comment = Comment.new
   end
 
   def create
     @expense = Expense.new(expense_params)
     @expense_report = ExpenseReport.find(params[:expense_report_id])
     @category = Category.find_by(params[:id])
+    @comment = Comment.new
 
     if @expense.save
       flash[:message] = "Successfully created new expense"
