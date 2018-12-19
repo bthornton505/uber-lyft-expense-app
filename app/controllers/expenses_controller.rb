@@ -17,7 +17,7 @@ class ExpensesController < ApplicationController
 
     if @expense.save
       flash[:message] = "Successfully created new expense"
-      redirect_to expense_report_path(@expense_report)
+      redirect_to expense_path(@expense)
     else
       render :new
     end
