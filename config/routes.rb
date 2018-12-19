@@ -15,6 +15,11 @@ Rails.application.routes.draw do
 
   resources :categories
 
+# Routes to create a new comment for an expense
+  resources :comments
+  # get '/expenses/:expense_id/comments/new' => 'comments#new', :as => :new_expense_comment
+  # post '/expenses/:expense_id/comments' => 'comments#create', :as => :expense_comment
+
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
