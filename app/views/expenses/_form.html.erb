@@ -1,13 +1,16 @@
 <%= form_for([@expense_report, @expense]) do |f| %>
 <%= f.hidden_field :expense_report_id %>
 
-  <%= f.label :month %>
+  <%= f.label :month, "Month:" %>
   <%= f.text_field :month %>
 
-  <%= f.label :cost %>
+  <%= f.label :cost, "Cost:" %>
   <%= f.number_field :cost %>
 
   <!-- Need to add form for selecting a category -->
+  <%= render partial: "categories/form", locals: {expense_category: @category} %>
+  <!-- Then add collection select to go through already created categories -->
+  
 
   <%= f.submit "Add Expense" %>
 
