@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   get '/expense_reports/:expense_report_id/expenses/new' => 'expenses#new', :as => :new_expense_report_expense
   get '/expense_reports/:expense_report_id/expenses' => 'expenses#index', :as => :expense_report_expenses
   post '/expense_reports/:expense_report_id/expenses' => 'expenses#create'
-  get '/expense_reports/:expense_report_id/expenses/:expense_id' => 'expenses#show', :as => :expense_report_expense 
+  get '/expenses/:expense_id' => 'expenses#show', :as => :expense
+
+  resources :categories
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
