@@ -6,7 +6,7 @@ class Expense < ActiveRecord::Base
   # accepts_nested_attributes_for :comments
 
   def comments_attributes=(comments_attributes)
-    raise comments_attributes.inspect
+    # raise comments_attributes.inspect
     comments_attributes.each do |i, comment_attributes|
       self.comments.build(comment_attributes)
     end
