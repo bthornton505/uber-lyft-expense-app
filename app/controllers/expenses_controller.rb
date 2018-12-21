@@ -13,8 +13,6 @@ class ExpensesController < ApplicationController
     @categories = Category.all
     @expense.comments.build( expense_id: @expense.id, category_id: @category.id )
 
-    # @category = Category.new
-    # @comment = Comment.new
   end
 
   def create
