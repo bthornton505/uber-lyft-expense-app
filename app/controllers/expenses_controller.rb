@@ -1,9 +1,7 @@
 class ExpensesController < ApplicationController
 
   def show
-    @user = User.find_by(id: params[:id])
     @expense = Expense.find_by(id: params[:id])
-    # @expense.category = Expense.comments
   end
 
   def new
