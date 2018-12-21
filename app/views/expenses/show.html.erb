@@ -8,17 +8,17 @@
 <h3>Expense Category</h3>
 
   <ul>
-    <li>Category: <%= @expense.categories.last.name %></li>
+    <li><%= @expense.categories.last.name %></li>
   </ul>
 
 
 
-<h4>Expense Comments</h4> <!-- The join table might make more sense to be called Expense_comment or Comment -->
-                      <!-- This table would keep all the same columns but the name of the table might make more sense -->
+<h4>Expense Comments</h4>
+
   <ul>
     <li><%= @expense.comments.last.description %></li>
   </ul>
-  
+
 
 
 
