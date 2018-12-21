@@ -6,7 +6,7 @@
 
 <ul>
   <% @expenses.each do |expense| %>
-    <li>Month: <%= expense.month %> | Cost: $<%= expense.cost %> | <%= link_to "View", expense_path(expense.id) %></li>
+    <li><%= expense.categories.last.name %> | $<%= expense.cost %> | <%= link_to "View", expense_path(expense.id) %></li>
   <% end %>
 </ul>
 
