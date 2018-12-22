@@ -2,8 +2,7 @@ class ExpensesController < ApplicationController
   before_action :logged_in?
 
   def show
-    @expense_report = ExpenseReport.find_by(params[:expense_report_id])
-    @expense = Expense.find_by(:expense_report => @expense_report)
+    @expense = Expense.find_by(id: params[:id])
   end
 
   def new
@@ -11,7 +10,7 @@ class ExpensesController < ApplicationController
     @expense = Expense.new(:expense_report => @expense_report)
     @category = Category.find_by(params[:id])
     @categories = Category.all
-    @expense.comments.build( expense_id: @expense, category_id: @category )
+    @expense.comments.build( expense_id: @expense.id, category_id: @category )
   end
 
   def create
@@ -23,21 +22,19 @@ class ExpensesController < ApplicationController
     else
       render :new
     end
+  end
 
-    def edit
-      @expense_report = ExpenseReport.find_by(params[:id])
-      @expense = Expense.find_by(params[:id])
-      # @category = Category.find_by(params[:id])
-      # @categories = Category.all
-      # @expense.comments.build( expense_id: @expense, category_id: @category )
-    end
-
-    def update
-
-    end
+  def edit
+    @expense_report = ExpenseReport.find_by(params[:id])
+    @expense = Expense.find_by(params[:id])
+    @category = Category.find_by(params[:id])
+    @categories = Category.all
 
   end
 
+  def update
+
+  end
 
   private
 
