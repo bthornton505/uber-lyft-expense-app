@@ -23,6 +23,15 @@ class ExpensesController < ApplicationController
       render :new
     end
 
+    def edit
+      @expense_report = ExpenseReport.find_by(params[:id])
+      @expense = Expense.find_by(params[:id])
+    end
+
+    def update
+
+    end
+
   end
 
 
