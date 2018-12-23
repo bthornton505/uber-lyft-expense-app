@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
 # Routes to create expenses under associated expense_report
   get '/expense_reports/:expense_report_id/expenses' => 'expenses#index', :as => :expense_report_expenses
-  get '/expense_reports/:expense_report_id/expenses/new' => 'expenses#new', :as => :new_expense_report_expense
   post '/expense_reports/:expense_report_id/expenses' => 'expenses#create'
+  get '/expense_reports/:expense_report_id/expenses/new' => 'expenses#new', :as => :new_expense_report_expense
   # get '/expense_reports/:expense_report_id/expenses/:expense_id/edit' => 'expenses#edit', :as => :edit_expense_report_expense
   # get '/expense_reports/:expense_report_id/expenses/:expense_id' => 'expenses#show', :as => :expense_report_expense
   # patch '/expense_reports/:expense_report_id/expenses/:expense_id' => 'expenses#update'
