@@ -12,9 +12,4 @@ class Expense < ActiveRecord::Base
     end
   end
 
-
-  def category=(category_id)
-    self.category = Category.find_by(id: category_id)
-  end
-
 end
