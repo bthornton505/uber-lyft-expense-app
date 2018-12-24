@@ -6,7 +6,7 @@
 
 <ul>
   <% @expenses.each do |expense| %>
-    <li><%= expense.categories.last.name %> | $<%= expense.cost %> | <%= link_to "View", expense_path(expense) %></li>
+    <li><%= expense.categories.last.name %> | $<%= expense.cost %> | <%= link_to "View", expense_report_expense_path(@expense_report.id, expense) %></li>
   <% end %>
 </ul>
 
@@ -14,5 +14,4 @@
 
 <%= link_to "Add Expense", new_expense_report_expense_path(@expense_report) %> |
 <%= link_to "Edit Expense Report", edit_expense_report_path(@expense_report) %> |
-<!-- I want a link here to direct a user back to their expense reports -->
 <%= link_to "Profile", user_path(@expense_report.user) %>
