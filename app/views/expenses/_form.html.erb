@@ -1,4 +1,4 @@
-<%= form_for([@expense_report, @expense]) do |f| %>
+<%= form_for [@expense_report, @expense] do |f| %>
 <%= f.hidden_field :expense_report_id, value: params[:expense_report_id] %>
 
   <%= f.label :month, "Month:" %>
