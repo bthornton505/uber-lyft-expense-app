@@ -43,7 +43,15 @@ class ExpensesController < ApplicationController
     else
       render :edit
     end
-    
+
+  end
+
+  def destroy
+    @expense_report = ExpenseReport.find_by(id: params[:expense_report_id])
+    @expense = Expense.find_by(id: params[:id])
+
+    @expense.destroy
+    redirect_to expense_report_path(@expense_report)
   end
 
   private
