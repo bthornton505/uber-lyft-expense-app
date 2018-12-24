@@ -20,4 +20,6 @@
 
 
 
-<%= link_to "Edit", edit_expense_path(@expense) %> | <%= link_to "Profile", user_path(current_user) %>
+<%= link_to "Edit", edit_expense_report_expense_path(@expense_report.id, @expense) %> |
+<%= link_to "Expense Report", expense_report_path(@expense_report) %> |
+<%= link_to "Profile", user_path(current_user) %>
