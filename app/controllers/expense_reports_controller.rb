@@ -39,6 +39,22 @@ class ExpenseReportsController < ApplicationController
 
   end
 
+  def edit
+    @expense_report = ExpenseReport.find_by(params[:id])
+  end
+
+  def update
+    @user = current_user
+    @expense_report = ExpenseReport.find_by(params[:id])
+
+    if @expense_report.update(expense_report_params)
+      redirect_to expense_report_path(@expense_report)
+    else
+      render :edit
+    end
+    
+  end
+
 
   private
 
