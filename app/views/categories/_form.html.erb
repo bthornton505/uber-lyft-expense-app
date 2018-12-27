@@ -1,7 +1,0 @@
-<%= form_for @category do |f| %>
-
-  <%= f.collection_select(:name, Category.all, :id, :name, {prompt: 'Select Category'}) %>
-
-  <%= f.submit "", :style => "display: none;" %>
-
-<% end %>
