@@ -1,5 +1,5 @@
 class ExpenseReportsController < ApplicationController
-  before_action :logged_in_required
+  before_action :login_required
 
   def show
     @expense_report = ExpenseReport.find_by(id: params[:id])
