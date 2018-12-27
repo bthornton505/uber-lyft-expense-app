@@ -58,7 +58,7 @@ class ExpenseReportsController < ApplicationController
   def destroy
     @expense_report = ExpenseReport.find_by(id: params[:id])
     @expense_report.destroy
-    redirect_to user_path(current_user)
+    redirect_to user_expense_reports_path(current_user.expense_reports)
   end
 
 
