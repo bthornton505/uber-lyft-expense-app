@@ -40,12 +40,12 @@ class ExpenseReportsController < ApplicationController
   end
 
   def edit
-    @expense_report = ExpenseReport.find_by(params[:id])
+    @expense_report = ExpenseReport.find_by(id: params[:id])
   end
 
   def update
     @user = current_user
-    @expense_report = ExpenseReport.find_by(params[:id])
+    @expense_report = ExpenseReport.find_by(id: params[:id])
 
     if @expense_report.update(expense_report_params)
       redirect_to expense_report_path(@expense_report)
@@ -56,9 +56,9 @@ class ExpenseReportsController < ApplicationController
   end
 
   def destroy
-    @expense_report = ExpenseReport.find_by(params[:id])
+    @expense_report = ExpenseReport.find_by(id: params[:id])
     @expense_report.destroy
-    redirect_to user__path(current_user)
+    redirect_to user_path(current_user)
   end
 
 
