@@ -2,7 +2,7 @@
 
 <ul> <!-- Eventually need to turn this into a table -->
   <p>
-    <% @expense_reports.each do |expense_report| %>
+    <% @expense_reports.by_chronological_order.each do |expense_report| %>
     <li><%= expense_report.month %> | <%= expense_report.year %> | <%= link_to "View", expense_report_path(expense_report) %></li>
     <% end %>
   </p>
