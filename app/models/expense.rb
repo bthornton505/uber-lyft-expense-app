@@ -3,7 +3,6 @@ class Expense < ActiveRecord::Base
   has_many :comments
   has_many :categories, through: :comments
 
-  # accepts_nested_attributes_for :comments
 
   def comments_attributes=(comments_attributes)
     # raise comments_attributes.inspect
