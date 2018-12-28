@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   has_many :expense_reports
   has_many :expenses, through: :expense_reports
 
+  validates :name, presence: true
+  validates :password, presence: true 
+
   def self.find_or_create_by_omniauth(auth_hash)
     self.where(:name => auth_hash["info"]["name"]).first_or_create do |user|
       user.password = SecureRandom.hex
