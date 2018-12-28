@@ -1,5 +1,7 @@
 <h1>Create an account</h1>
 
+<%= render partial: "errors", locals: {object: @user} %>
+
 <%= render 'form' %>
 <br>
 <%= button_to "Log in with Github", '/auth/github' %>
