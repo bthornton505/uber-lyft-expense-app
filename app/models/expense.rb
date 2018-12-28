@@ -5,7 +5,6 @@ class Expense < ActiveRecord::Base
 
 
   def comments_attributes=(comments_attributes)
-    # raise comments_attributes.inspect
     comments_attributes.each do |i, comment_attributes|
       self.comments.build(comment_attributes)
     end
