@@ -1,6 +1,10 @@
 class ExpenseReportsController < ApplicationController
   before_action :login_required
 
+  def by_year
+    @expense_reports = ExpenseReport.by_year
+  end
+
   def show
     @expense_report = ExpenseReport.find_by(id: params[:id])
     @expenses = Expense.all.select {|e| e.expense_report_id == @expense_report.id}
@@ -51,7 +55,6 @@ class ExpenseReportsController < ApplicationController
     flash[:success] = "Successfully deleted expense report"
     redirect_to user_expense_reports_path(current_user.expense_reports)
   end
-
 
   private
 
