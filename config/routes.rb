@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'welcome#home'
 
+  get '/expense_reports/by_year' => 'expense_reports#by_year'
+
   resources :users do
     resources :expense_reports, only: [:new, :create, :index]
   end
