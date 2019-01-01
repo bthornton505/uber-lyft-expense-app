@@ -17,9 +17,10 @@ class ExpenseReportsController < ApplicationController
   end
 
   def create
-    @expense_report = ExpenseReport.new(expense_report_params)
+    @expense_report = ExpenseReport.create(expense_report_params)
     # binding.pry
-    if @expense_report.save
+    if @expense_report.valid?
+      flash[:success] = "Successfully created new expense report"
       redirect_to expense_report_path(@expense_report)
     else
       render :new
@@ -36,6 +37,7 @@ class ExpenseReportsController < ApplicationController
     @expense_report = ExpenseReport.find_by(id: params[:id])
 
     if @expense_report.update(expense_report_params)
+      flash[:success] = "Successfully updated expense report"
       redirect_to expense_report_path(@expense_report)
     else
       render :edit
@@ -46,6 +48,7 @@ class ExpenseReportsController < ApplicationController
   def destroy
     @expense_report = ExpenseReport.find_by(id: params[:id])
     @expense_report.destroy
+    flash[:success] = "Successfully deleted expense report"
     redirect_to user_expense_reports_path(current_user.expense_reports)
   end
 
