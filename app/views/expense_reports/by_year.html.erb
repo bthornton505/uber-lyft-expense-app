@@ -1,0 +1,11 @@
+<h2>Check out your Expense Reports by cumulative year!</h2>
+
+<ul>
+  <% @expense_reports.each do |expense_report| %>
+    <li>
+      <%= link_to "#{expense_report.year} Expense Reports", expense_report_path(expense_report.id) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Profile", user_path(current_user) %>
