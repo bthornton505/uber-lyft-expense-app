@@ -7,6 +7,7 @@ class ExpenseReportsController < ApplicationController
 
   def current_report
     @expense_report = ExpenseReport.current_expense_report
+    @expenses = Expense.all.select {|e| e.expense_report_id == @expense_report.id}
   end
 
   def show
