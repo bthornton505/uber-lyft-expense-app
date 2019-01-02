@@ -1,0 +1,18 @@
+<h1><%= @expense_report.month %> | <%= @expense_report.year %></h1>
+
+<br>
+
+<h4>Expenses</h4>
+
+<ul>
+  <% @expenses.each do |expense| %>
+    <li><%= expense.categories.last.name %> | $<%= expense.cost %> | <%= link_to "View", expense_report_expense_path(@expense_report.id, expense) %></li>
+  <% end %>
+</ul>
+
+<br>
+
+<%= link_to "Add Expense", new_expense_report_expense_path(@expense_report) %> |
+<%= link_to "Edit Expense Report", edit_expense_report_path(@expense_report) %> |
+<%= link_to "All Reports", user_expense_reports_path(current_user.expense_reports) %> |
+<%= link_to "Profile", user_path(current_user) %>
