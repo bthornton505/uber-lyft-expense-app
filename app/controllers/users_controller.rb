@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   def show
     if logged_in?
       @user = User.find_by(id: params[:id])
-      @expense_reports = ExpenseReport.by_year
     else
       redirect_to root_url
     end
