@@ -27,7 +27,7 @@ class ExpenseReportsController < ApplicationController
 
   def create
     @expense_report = ExpenseReport.create(expense_report_params)
-    # binding.pry
+
     if @expense_report.valid?
       flash[:success] = "Successfully created new expense report"
       redirect_to expense_report_path(@expense_report)
