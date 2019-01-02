@@ -5,6 +5,10 @@ class ExpenseReportsController < ApplicationController
     @expense_reports = ExpenseReport.by_year
   end
 
+  def current_report
+    @expense_report = ExpenseReport.current_expense_report
+  end
+
   def show
     @expense_report = ExpenseReport.find_by(id: params[:id])
     @expenses = Expense.all.select {|e| e.expense_report_id == @expense_report.id}
