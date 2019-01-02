@@ -12,7 +12,7 @@ class ExpenseReport < ActiveRecord::Base
   # scope :current_report, -> { (created_at: :desc) }
   scope :by_year, -> { order(year: :desc)}
 
-  def current_expense_report
+  def self.current_expense_report
     self.recently_added.first
   end
 
