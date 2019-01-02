@@ -1,14 +1,8 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# This creates the categories a user can pick from
 category_list  = [
   "Gas",
   "Car Insurance",
-  "Car Payment", 
+  "Car Payment",
   "Maintenance",
   "Car Wash",
   "Phone Payment",
@@ -18,3 +12,60 @@ category_list  = [
 category_list.each do |category|
   Category.create( name: category )
 end
+
+#This creates the months a user can pick from for expense reports
+# expense_report_months = [
+#   "January",
+#   "February",
+#   "March",
+#   "April",
+#   "May",
+#   "June",
+#   "July",
+#   "August",
+#   "September",
+#   "October",
+#   "November",
+#   "December"
+# ]
+#
+# expense_report_months.each do |month|
+#   ExpenseReport.create( month: month )
+# end
+#
+# expense_report_years = [
+#   2017,
+#   2018,
+#   2019,
+#   2020,
+#   2021,
+#   2022,
+#   2023,
+#   2024,
+#   2025,
+#   2026
+# ]
+#
+# expense_report_years.each do |year|
+#   ExpenseReport.create( year: year )
+# end
+
+# This creates expense months a user can pick from
+# expense_months = [
+#   "January",
+#   "February",
+#   "March",
+#   "April",
+#   "May",
+#   "June",
+#   "July",
+#   "August",
+#   "September",
+#   "October",
+#   "November",
+#   "December"
+# ]
+#
+# expense_months.each do |month|
+#   Expense.create( month: month )
+# end
