@@ -34,7 +34,6 @@ class ExpenseReportsController < ApplicationController
       redirect_to expense_report_path(@expense_report)
     else
       @user = current_user
-      # binding.pry
       render :new
     end
 
