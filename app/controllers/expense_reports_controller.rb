@@ -5,9 +5,9 @@ class ExpenseReportsController < ApplicationController
     if params[:year] == ""
       redirect_to user_expense_reports_path(current_user)
     else
+      year = params[:year]
       @user = current_user
-      @reports = @user.expense_reports.by_year
-      binding.pry
+      @reports = @user.expense_reports.by_year(year)
     end
   end
 
