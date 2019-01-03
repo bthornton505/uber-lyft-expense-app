@@ -22,6 +22,9 @@ class ExpensesController < ApplicationController
       flash[:success] = "Successfully created new expense"
       redirect_to expense_report_expense_path(@expense_report.id, @expense)
     else
+      @expense_report = ExpenseReport.find_by(id: params[:expense_report_id])
+      @categories = Category.all
+      # binding.pry
       render :new
     end
   end
