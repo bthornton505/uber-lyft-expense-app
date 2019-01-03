@@ -2,7 +2,9 @@ class ExpenseReportsController < ApplicationController
   before_action :login_required
 
   def by_year
-    @expense_reports = ExpenseReport.by_year
+    @user = current_user
+    @reports = @user.expense_reports.by_year
+    binding.pry
   end
 
   def current_report
@@ -19,6 +21,7 @@ class ExpenseReportsController < ApplicationController
   def index
     @user = current_user
     @expense_reports = @user.expense_reports
+    @reports = @user.expense_reports
   end
 
   def new
