@@ -6,6 +6,7 @@ class ExpenseReportsController < ApplicationController
   end
 
   def current_report
+    # Need to add logic so that this method only keeps track of a specific users current expense report
     @expense_report = ExpenseReport.current_expense_report
     @expenses = Expense.all.select {|e| e.expense_report_id == @expense_report.id}
   end
@@ -26,12 +27,14 @@ class ExpenseReportsController < ApplicationController
   end
 
   def create
-    @expense_report = ExpenseReport.create(expense_report_params)
+    @expense_report = ExpenseReport.new(expense_report_params)
 
-    if @expense_report.valid?
+    if @expense_report.save
       flash[:success] = "Successfully created new expense report"
       redirect_to expense_report_path(@expense_report)
     else
+      @user = current_user
+      # binding.pry
       render :new
     end
 
