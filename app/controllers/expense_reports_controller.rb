@@ -2,9 +2,13 @@ class ExpenseReportsController < ApplicationController
   before_action :login_required
 
   def by_year
-    @user = current_user
-    @reports = @user.expense_reports.by_year
-    binding.pry
+    if params[:year] == ""
+      redirect_to user_expense_reports_path(current_user)
+    else
+      @user = current_user
+      @reports = @user.expense_reports.by_year
+      binding.pry
+    end
   end
 
   def current_report
