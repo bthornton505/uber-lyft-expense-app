@@ -1,5 +1,5 @@
 <h1>Create new expense report</h1>
 
-<%= render partial: "users/errors", locals: {object: @expense_report, user: @user} %>
+<%= render partial: "error_messages", locals: { object: @expense_report } %>
 
-<%= render 'form' %>
+<%= render partial: "form" %>
