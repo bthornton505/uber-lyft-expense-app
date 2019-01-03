@@ -4,8 +4,8 @@ class Expense < ActiveRecord::Base
   has_many :categories, through: :comments
 
   validates :month, presence: true
-  validates :cost, presence: true 
-
+  validates :cost, presence: true
+  validates :expense_report_id, presence: true
 
   def comments_attributes=(comments_attributes)
     comments_attributes.each do |i, comment_attributes|
