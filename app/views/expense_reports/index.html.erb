@@ -9,5 +9,6 @@
 </ul>
 
 <%= link_to "New Expense Report", new_user_expense_report_path(@user) %> |
-<%= link_to "View Report By Year: AN OPTION FOR YEAR", expense_reports_by_year_path %> |
+<%= link_to "Current Report", expense_reports_current_report_path(@expense_report) %> |
+<%# <%= link_to "View Report By Year: AN OPTION FOR YEAR", expense_reports_by_year_path %>
 <%= link_to "Profile", user_path(current_user) %>
