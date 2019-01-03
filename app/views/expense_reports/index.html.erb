@@ -1,5 +1,7 @@
 <h1><%= @user.name %>'s Expense Reports</h1>
 
+<%= render 'search_by_year' %>
+
 <ul> <!-- Eventually need to turn this into a table -->
   <p>
     <% @expense_reports.recently_added.each do |expense_report| %>
@@ -9,6 +11,6 @@
 </ul>
 
 <%= link_to "New Expense Report", new_user_expense_report_path(@user) %> |
-<%= link_to "Current Report", expense_reports_current_report_path(@expense_report) %> |
+<%= link_to "Current Report", users_current_expense_report_path(@user, @expense_report) %> |
 <%# <%= link_to "View Report By Year: AN OPTION FOR YEAR", expense_reports_by_year_path %>
 <%= link_to "Profile", user_path(current_user) %>
