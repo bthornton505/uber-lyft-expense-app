@@ -1,0 +1,5 @@
+<%= form_tag(expense_reports_by_year_path, method: :get) do %>
+  <p>Search by year:
+    <%= select_tag("year", options_for_select(@reports.collect { |r| r.year }), prompt: "year") %> <%= submit_tag "Go" %>
+  </p>
+<% end %>
