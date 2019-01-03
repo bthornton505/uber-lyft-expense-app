@@ -7,7 +7,7 @@ class ExpenseReport < ActiveRecord::Base
   validates :user_id, presence: true
 
   scope :recently_added, -> { order(created_at: :desc) }
-  scope :by_year, -> { select(:id, :month, :year).where("year = ?", "2019") }
+  scope :by_year, -> (year) { select(:id, :month, :year).where("year = ?", year) }
   # ExpenseReport.select(:id, :year).where(year: 2019)
 
   def self.current_expense_report
