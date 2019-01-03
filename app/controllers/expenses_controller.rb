@@ -24,7 +24,6 @@ class ExpensesController < ApplicationController
     else
       @expense_report = ExpenseReport.find_by(id: params[:expense_report_id])
       @categories = Category.all
-      # binding.pry
       render :new
     end
   end
