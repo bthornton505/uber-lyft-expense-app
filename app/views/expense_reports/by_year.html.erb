@@ -1,10 +1,13 @@
 <br>
-<h2>Here are your reports for <%= "#{params[:year]}" %></h2>
+<h1>Here are your reports for <%= "#{params[:year]}" %></h1>
+<br>
 
-<ul>
-  <% @reports.each do |expense_report| %>
-    <li>
-      <%= expense_report.month %> | <%= expense_report.year %> | <%= link_to "View", expense_report_path(expense_report) %>
-    </li>
-  <% end %>
-</ul>
+<div>
+  <ul>
+    <% @reports.each do |expense_report| %>
+      <li>
+        <%= expense_report.month %> | <%= expense_report.year %> | <%= link_to "View", expense_report_path(expense_report) %>
+      </li>
+    <% end %>
+  </ul>
+</div>
