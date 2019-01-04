@@ -1,11 +1,11 @@
-<%= form_for @user do |f| %>
+<%= form_for @user, class: "form-group" do |f| %>
 
   <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br><br>
+  <%= f.text_field :name, class: "form-control", placeholder: "Enter name" %>
+  <br>
   <%= f.label :password %>
-  <%= f.password_field :password %>
-  <br><br>
-  <%= f.submit %>
+  <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+  <br>
+  <%= f.submit class: "btn btn-secondary btn-sm" %>
 
 <% end %>
