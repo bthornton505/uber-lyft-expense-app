@@ -1,3 +1,4 @@
+<br>
 <h1><%= @user.name %>'s Expense Reports</h1>
 
 <%= render 'search_by_year' %>
@@ -10,6 +11,6 @@
   </p>
 </ul>
 
-<%= link_to "New Expense Report", new_user_expense_report_path(@user) %> |
-<%# <%= link_to "Current Report", users_current_expense_report_path(@user, @expense_report) %> 
-<%= link_to "Profile", user_path(current_user) %>
+<br>
+<%= link_to "New Expense Report", new_user_expense_report_path(@user), class: "btn btn-secondary btn-sm" %>
+<%# <%= link_to "Current Report", users_current_expense_report_path(@user, @expense_report) %>

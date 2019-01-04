@@ -1,5 +1,7 @@
-<%= form_tag(expense_reports_by_year_path, method: :get) do %>
-  <p>Search by year:
-    <%= select_tag("year", options_for_select(@reports.collect { |r| r.year }.uniq), prompt: "year") %> <%= submit_tag "Go", name: nil %>
+
+<%= form_tag(expense_reports_by_year_path, method: :get, class: "form-group") do %>
+  <p>
+    <%= select_tag("year", options_for_select(@reports.collect { |r| r.year }.uniq), prompt: "Search by year", class: "btn-outline-secondary btn-sm dropdown-toggle") %>
+    <%= submit_tag "Go", name: nil, class: "btn btn-secondary btn-sm" %>
   </p>
 <% end %>
