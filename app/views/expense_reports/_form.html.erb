@@ -1,12 +1,12 @@
-<%= form_for [@user, @expense_report] do |f| %>
+<%= form_for [@user, @expense_report], class: "form-group" do |f| %>
 <%= f.hidden_field :user_id %>
 
   <%= f.label :month %>
-  <%= f.text_field :month %>
-
+  <%= f.text_field :month, class: "form-control", placeholder: "Enter month" %>
+  <br>
   <%= f.label :year %>
-  <%= f.number_field :year %>
-
-  <%= f.submit %>
+  <%= f.number_field :year, class: "form-control", placeholder: "Enter year" %>
+  <br>
+  <%= f.submit class: "btn btn-secondary btn-sm" %>
 
 <% end %>
