@@ -1,15 +1,16 @@
+<br>
 <h1>Welcome Back!</h1>
 
-<%= form_for(:session, url: login_path) do |f| %>
+<%= form_for(:session, url: login_path, class: "form-group") do |f| %>
 
   <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br><br>
+  <%= f.text_field :name, class: "form-control", placeholder: "Enter name" %>
+  <br>
   <%= f.label :password %>
-  <%= f.password_field :password %>
-  <br><br>
-  <%= f.submit "Log In" %>
+  <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+  <br>
+  <%= f.submit "Log In", class: "btn btn-secondary btn-sm" %>
 
 <% end %>
 <br>
-<%= button_to "Log in with Github", '/auth/github' %>
+<%= button_to "Log in with Github", '/auth/github', class: "btn btn-secondary btn-sm" %>
