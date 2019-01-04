@@ -9,19 +9,64 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Tax Driver</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <% if logged_in? %>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="user_path(current_user)">Profile <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+        </div>
+      <% else %>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/users/new">Sign Up <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Log In</a>
+            </li>
+          </ul>
+        </div>
+      <% end %>
+    </nav>
+  </div>
+
+  <div class="container">
     <% if flash[:alert] %>
       <div class="alert alert-danger" role="alert">
         <%= flash[:alert] %>
       </div>
     <% end %>
+  </div>
 
+  <div class="container">
     <% if flash[:success] %>
       <div class="alert alert-success" role="alert">
         <%= flash[:success] %>
       </div>
     <% end %>
+  </div>
 
-  <body>
-    <%= yield %>
-  </body>
+  <div class="container">
+
+      <%= yield %>
+
+  </div>
 </html>
