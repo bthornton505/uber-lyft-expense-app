@@ -11,11 +11,11 @@ class ExpenseReportsController < ApplicationController
     end
   end
 
-  def current_report
-    # Need to add logic so that this method only keeps track of a specific users current expense report
-    @expense_report = ExpenseReport.current_expense_report
-    @expenses = Expense.all.select {|e| e.expense_report_id == @expense_report.id}
-  end
+  # def current_report
+  #   Need to add logic so that this method only keeps track of a specific users current expense report
+  #   @expense_report = ExpenseReport.current_expense_report
+  #   @expenses = Expense.all.select {|e| e.expense_report_id == @expense_report.id}
+  # end
 
   def show
     @expense_report = ExpenseReport.find_by(id: params[:id])
