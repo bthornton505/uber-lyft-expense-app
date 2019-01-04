@@ -8,14 +8,9 @@ class ExpenseReport < ActiveRecord::Base
 
   scope :recently_added, -> { order(created_at: :desc) }
   scope :by_year, -> (year) { select(:id, :month, :year).where("year = ?", year) }
-  # ExpenseReport.select(:id, :year).where(year: 2019)
 
-  def self.current_expense_report
-    self.recently_added.first
-  end
-
-  # def self.by_year
-  #   self.find_by(year: self.year)
+  # def self.current_expense_report
+  #   self.recently_added.first
   # end
 
 end
