@@ -1,0 +1,16 @@
+<table>
+  <thead>
+    <th>Month</th>
+    <th>Year</th>
+    <th>Details</th>
+  </thead>
+  <tbody>
+    <% @reports.each do |expense_report| %>
+      <tr class="paddingBetweenCols">
+        <td><%= expense_report.month %></td>
+        <td><%= expense_report.year %></td>
+        <td><%= link_to "View", expense_report_path(expense_report) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
