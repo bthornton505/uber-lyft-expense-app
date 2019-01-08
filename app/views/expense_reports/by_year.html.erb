@@ -3,11 +3,5 @@
 <br>
 
 <div>
-  <ul>
-    <% @reports.each do |expense_report| %>
-      <li>
-        <%= expense_report.month %> | <%= expense_report.year %> | <%= link_to "View", expense_report_path(expense_report) %>
-      </li>
-    <% end %>
-  </ul>
+  <%= render partial: 'by_year_table', locals: { by_year_reports: @reports } %>
 </div>
