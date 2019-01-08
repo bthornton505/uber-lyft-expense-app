@@ -6,3 +6,9 @@
 div.field_with_errors input {
   border: 1px solid red;
 }
+
+// STYLING FOR EXPENSE AND EXPENSE REPORTS TABLES
+
+.paddingBetweenCols td {
+    padding:3px 15px 0 15px;
+}
