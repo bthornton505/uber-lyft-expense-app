@@ -3,13 +3,7 @@
 
 <%= render 'search_by_year' %>
 
-<ul> <!-- Eventually need to turn this into a table -->
-  <p>
-    <% @expense_reports.recently_added.each do |expense_report| %>
-    <li><%= expense_report.month %> | <%= expense_report.year %> | <%= link_to "View", expense_report_path(expense_report) %></li>
-    <% end %>
-  </p>
-</ul>
+<%= render partial: 'all_reports_table', locals: { expense_reports: @expense_reports } %>
 
 <br>
 <%= link_to "New Expense Report", new_user_expense_report_path(@user), class: "btn btn-secondary btn-sm" %>
