@@ -1,12 +1,12 @@
-<table>
-  <thead>
+<table class="table">
+  <thead class="table-striped">
     <th>Month</th>
     <th>Year</th>
     <th>Details</th>
   </thead>
   <tbody>
     <% @expense_reports.recently_added.each do |expense_report| %>
-      <tr class="paddingBetweenCols">
+      <tr>
         <td><%= expense_report.month %></td>
         <td><%= expense_report.year %></td>
         <td><%= link_to "View", expense_report_path(expense_report) %></td>

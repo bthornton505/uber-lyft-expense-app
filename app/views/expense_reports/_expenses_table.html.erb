@@ -1,12 +1,12 @@
-<table>
-  <thead>
+<table class="table">
+  <thead class="table-striped">
     <th>Category</th>
     <th>Cost</th>
     <th>Details</th>
   </thead>
   <tbody>
     <% @expenses.each do |expense| %>
-      <tr class="paddingBetweenCols">
+      <tr>
         <td><%= expense.categories.last.name %></td>
         <td>$<%= expense.cost %></td>
         <td><%= link_to "View", expense_report_expense_path(@expense_report.id, expense) %></td>
