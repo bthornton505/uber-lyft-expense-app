@@ -5,11 +5,7 @@
 
 <h4>Expenses</h4>
 
-<ul>
-  <% @expenses.each do |expense| %>
-    <li><%= expense.categories.last.name %> | $<%= expense.cost %> | <%= link_to "View", expense_report_expense_path(@expense_report.id, expense) %></li>
-  <% end %>
-</ul>
+<%= render partial: 'expenses_table', locals: { expenses: @expenses } %>
 
 <br>
 
