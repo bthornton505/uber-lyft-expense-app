@@ -8,6 +8,7 @@ class Expense < ActiveRecord::Base
   validates :expense_report_id, presence: true
 
   def comments_attributes=(comments_attributes)
+    self.comments.destroy_all
     comments_attributes.each do |i, comment_attributes|
       self.comments.build(comment_attributes)
     end
