@@ -58,22 +58,10 @@ class ExpenseReportsController < ApplicationController
       flash[:success] = "Successfully updated expense report"
       redirect_to expense_report_path(@expense_report)
     else
-      render :edit
+      render :edit 
     end
 
   end
-
-  # if params[:name] == "" || params[:gallons] == ""
-  #     redirect to "/fishtanks/#{params[:id]}/edit"
-  #   else
-  #     @fishtank = Fishtank.find_by_id(params[:id])
-  #     if @fishtank && @fishtank.user == @current_user
-  #       @fishtank.update(:name => params[:name], :gallons => params[:gallons])
-  #       redirect to "/fishtanks/#{@fishtank.id}"
-  #     else
-  #       redirect to "/fishtanks/#{@fishtank.id}/edit"
-  #     end
-  #   end
 
   def destroy
     @expense_report = ExpenseReport.find_by(id: params[:id])
