@@ -47,6 +47,7 @@ class ExpenseReportsController < ApplicationController
   end
 
   def edit
+    @user = current_user
     @expense_report = ExpenseReport.find_by(id: params[:id])
   end
 
@@ -58,7 +59,10 @@ class ExpenseReportsController < ApplicationController
       flash[:success] = "Successfully updated expense report"
       redirect_to expense_report_path(@expense_report)
     else
-      render :edit 
+      flash[:alert] = "Something went wrong updating this report. Try again."
+      @user = current_user
+      @expense_report = ExpenseReport.find_by(id: params[:id])
+      render :edit
     end
 
   end
