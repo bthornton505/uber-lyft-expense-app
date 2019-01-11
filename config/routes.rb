@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   # get '/users/:user_id/expense_reports/current_report' => 'expense_reports#current_report', as: "users_current_expense_report"
 
   resources :users do
-    resources :expense_reports, only: [:new, :create, :index]
+    resources :expense_reports, only: [:new, :create, :index, :edit, :update]
   end
 
-  resources :expense_reports, only: [:show, :edit, :update, :destroy] do
+  resources :expense_reports, only: [:show, :destroy] do
     resources :expenses
   end
 
