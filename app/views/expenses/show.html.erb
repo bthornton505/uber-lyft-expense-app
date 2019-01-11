@@ -2,21 +2,23 @@
 <h1>Expense Details</h1>
 
 <ul>
-  <li>Month: <%= @expense.month %></li>
+  <li>Month: <%= @expense.expense_report.month %></li>
   <li>Cost: $<%= @expense.cost %></li>
 </ul>
 
 <h3>Expense Category</h3>
 
-  <ul>
+  <ul> <!-- need to change this so it shows all the categories -->
     <li><%= @expense.categories.last.name %></li>
   </ul>
 
 <h4>Expense Comments</h4>
 
-  <ul>
+  <ul> <!-- need to change this so it shows all the comments -->
     <li><%= @expense.comments.last.description %></li>
   </ul>
+
+  <%= link_to "Add Comment", new_comment_path(:expense_id => @expense.id) %>
 
 
 <br>
