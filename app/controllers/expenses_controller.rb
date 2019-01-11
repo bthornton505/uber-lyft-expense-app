@@ -31,12 +31,12 @@ class ExpensesController < ApplicationController
   def edit
     @expense_report = ExpenseReport.find_by(id: params[:expense_report_id])
     @expense = Expense.find_by(id: params[:id])
-    @category = Category.find_by(params[:id])
     @categories = Category.all
-
+    # binding.pry
   end
 
   def update
+    # binding.pry
     @expense_report = ExpenseReport.find_by(id: params[:expense_report_id])
     @expense = Expense.find_by(id: params[:id])
 
@@ -44,6 +44,11 @@ class ExpensesController < ApplicationController
       flash[:success] = "Successfully updated expense"
       redirect_to expense_report_expense_path(@expense_report.id, @expense)
     else
+      flash[:alert] = "Something went wrong updating this expense. Try again."
+      @expense_report = ExpenseReport.find_by(id: params[:expense_report_id])
+      @expense = Expense.find_by(id: params[:id])
+      @category = Category.find_by(params[:id])
+      @categories = Category.all
       render :edit
     end
 
