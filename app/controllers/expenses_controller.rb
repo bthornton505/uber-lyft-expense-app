@@ -9,9 +9,10 @@ class ExpensesController < ApplicationController
   def new
     @expense_report = ExpenseReport.find_by(id: params[:expense_report_id])
     @expense = Expense.new(:expense_report => @expense_report)
-    @category = Category.find_by(params[:id])
+    # @category = Category.find_by(id: params[:id])
     @categories = Category.all
-    @expense.comments.build( expense_id: @expense.id, category_id: @category )
+    # @expense.comments.build( expense_id: @expense.id, category_id: @category )
+    @expense.comments.build( expense_id: @expense.id )
   end
 
   def create
@@ -22,7 +23,7 @@ class ExpensesController < ApplicationController
       flash[:success] = "Successfully created new expense"
       redirect_to expense_report_expense_path(@expense_report.id, @expense)
     else
-      @expense_report = ExpenseReport.find_by(id: params[:expense_report_id])
+      # @expense_report = ExpenseReport.find_by(id: params[:expense_report_id])
       @categories = Category.all
       render :new
     end
