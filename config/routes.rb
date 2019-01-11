@@ -13,9 +13,6 @@ Rails.application.routes.draw do
     resources :expenses
   end
 
-  resources :categories
-  resources :comments
-
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
