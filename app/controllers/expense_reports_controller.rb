@@ -7,9 +7,10 @@ class ExpenseReportsController < ApplicationController
     else
       year = params[:year]
       @user = current_user
-      @reports = @user.expense_reports 
+      @reports = @user.expense_reports
       @expense_reports = @user.expense_reports.by_year(year)
-      render :index
+      render json: @expense_reports, status: 201
+      # render :index
     end
   end
 
