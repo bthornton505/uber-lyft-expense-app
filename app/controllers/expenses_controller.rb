@@ -4,14 +4,13 @@ class ExpensesController < ApplicationController
   def show
     @expense_report = ExpenseReport.find_by(id: params[:expense_report_id])
     @expense = Expense.find_by(id: params[:id])
+    binding.pry
   end
 
   def new
     @expense_report = ExpenseReport.find_by(id: params[:expense_report_id])
     @expense = Expense.new(:expense_report => @expense_report)
-    # @category = Category.find_by(id: params[:id])
     @categories = Category.all
-    # @expense.comments.build( expense_id: @expense.id, category_id: @category )
     @expense.comments.build( expense_id: @expense.id )
   end
 
