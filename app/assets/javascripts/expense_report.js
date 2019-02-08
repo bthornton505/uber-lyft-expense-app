@@ -1,12 +1,17 @@
 $(function() {
-
+  searchByYear()
 })
+
+// Variables
+let rootURL = 'https://localhost:3000/expense_reports/by_year?utf8=%E2%9C%93&year='
 
 // This will be used to search reports by year
 
 function searchByYear() {
-  $('#search-year').on('click', function(e) {
+  $('#year').on('click', function(e) {
     e.preventDefault();
-    console.log('Hijacked the button');
+    console.log(this)
+
+    // $.get(rootURL)
   })
 }
