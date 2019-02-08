@@ -4,7 +4,7 @@
     <th>Year</th>
     <th>Details</th>
   </thead>
-  <tbody>
+  <tbody id="expense-report-table">
     <% @expense_reports.order_by_year.each do |expense_report| %>
       <tr>
         <td id="expense-report-month"><%= expense_report.month %></td>
