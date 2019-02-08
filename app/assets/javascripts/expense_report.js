@@ -24,6 +24,28 @@ function searchByYear() {
         return reportYear;
         return reportLink;
       });
+
+      // let reportsTableMonth = $('#expense-report-month')
+      // let reportsTableYear = $('td#expense-report-year');
+      // let reportsTableLink = $('td#expense-report-link');
+      //
+      // const clearReportsMonth = reportsTableMonth.forEach(function() {
+      //   reportsTableMonth.empty();
+      // })
+      // reportsTableMonth.empty();
+      // reportsTableYear.empty();
+      // reportsTableLink.empty();
+
+      // let searchResults = data.map(function(report) {
+      //   let result = $('td#expense-report-month').text(report.month);
+      //   result += $('td#expense-report-year').text(report.year);
+      //   result += $('td#expense-report-link').text(`<a href="/expense_reports/${report.id}">View</a>`);
+      //
+      //
+      //   return result;
+      // });
+
+      // reportsTable.append(searchResults);
       // After sending a get request for the reports, I need to hijack the submit button
       // which will then arrange the data into the table properly (i hope)
     })
