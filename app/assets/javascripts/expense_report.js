@@ -21,8 +21,8 @@ function searchByYear() {
         let reportLink = $('td#expense-report-link').text(`<a href="/expense_reports/${report.id}">View</a>`);
 
         return reportMonth;
-        return reportYear;
-        return reportLink;
+        // return reportYear;
+        // return reportLink;
       });
 
       // let reportsTableMonth = $('#expense-report-month')
@@ -45,7 +45,7 @@ function searchByYear() {
       //   return result;
       // });
 
-      // reportsTable.append(searchResults);
+      console.log(searchResults)
       // After sending a get request for the reports, I need to hijack the submit button
       // which will then arrange the data into the table properly (i hope)
     })
