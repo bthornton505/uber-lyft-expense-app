@@ -12,15 +12,22 @@ function searchByYear() {
     let year = this.value;
     // I now have the search parameter in a variable and use it to query the database
     $.get(searchURL + year, function(data) {
+      console.log(data)
+      // Here I need to iterate over data so that I can clear the tds for injection
       let reportsTable = $('#expense-report-table');
+      // The varialble above needs to find the specific tds that need to be emptied
+      // so that I can fill them in with json data
       reportsTable.empty()
 
-      let searchResults = data.map(function(report) {
-        let reportMonth = $('td#expense-report-month').text(report.month);
-        let reportYear = $('td#expense-report-year').text(report.year);
-        let reportLink = $('td#expense-report-link').text(`<a href="/expense_reports/${report.id}">View</a>`);
+      let searchResults = data.forEach(function(report) {
+        // debugger
+        console.log(report)
+        // let reportMonth = $('td#expense-report-month').text(report.month);
+        // let reportYear = $('td#expense-report-year').text(report.year);
+        // let reportLink = $('td#expense-report-link').text(`<a href="/expense_reports/${report.id}">View</a>`);
 
-        return reportMonth;
+
+        // return reportMonth;
         // return reportYear;
         // return reportLink;
       });
@@ -45,7 +52,7 @@ function searchByYear() {
       //   return result;
       // });
 
-      console.log(searchResults)
+      // console.log(searchResults)
       // After sending a get request for the reports, I need to hijack the submit button
       // which will then arrange the data into the table properly (i hope)
     })
