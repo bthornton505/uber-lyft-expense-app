@@ -1,3 +1,3 @@
 class ExpenseReportSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :month, :year
 end
