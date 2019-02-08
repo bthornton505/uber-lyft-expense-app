@@ -7,9 +7,9 @@
   <tbody>
     <% @expense_reports.order_by_year.each do |expense_report| %>
       <tr>
-        <td><%= expense_report.month %></td>
-        <td><%= expense_report.year %></td>
-        <td><%= link_to "View", expense_report_path(expense_report) %></td>
+        <td id="expense-report-month"><%= expense_report.month %></td>
+        <td id="expense-report-year"><%= expense_report.year %></td>
+        <td id="expense-report-link"><%= link_to "View", expense_report_path(expense_report) %></td>
       </tr>
     <% end %>
   </tbody>
