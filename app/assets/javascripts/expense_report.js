@@ -12,8 +12,9 @@ function searchByYear() {
     e.preventDefault();
 
     let year = this.value;
-    console.log(year)
 
-    // $.get(rootURL)
+    $.get(rootURL + year, function(data) {
+      console.log(data);
+    })
   })
 }
