@@ -8,9 +8,11 @@ let rootURL = 'https://localhost:3000/expense_reports/by_year?utf8=%E2%9C%93&yea
 // This will be used to search reports by year
 
 function searchByYear() {
-  $('#year').on('click', function(e) {
+  $('#year').on('change', function(e) {
     e.preventDefault();
-    console.log(this)
+
+    let year = this.value;
+    console.log(year)
 
     // $.get(rootURL)
   })
