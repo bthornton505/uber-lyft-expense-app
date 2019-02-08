@@ -13,11 +13,8 @@ function searchByYear() {
     // I now have the search parameter in a variable and use it to query the database
     $.get(searchURL + year, function(data) {
       console.log(data)
-      // Here I need to iterate over data so that I can clear the tds for injection
-      let reportsTable = $('#expense-report-table');
-      // The varialble above needs to find the specific tds that need to be emptied
-      // so that I can fill them in with json data
-      reportsTable.empty()
+
+      clearReportTable();
 
       let searchResults = data.forEach(function(report) {
         // debugger
@@ -32,16 +29,6 @@ function searchByYear() {
         // return reportLink;
       });
 
-      // let reportsTableMonth = $('#expense-report-month')
-      // let reportsTableYear = $('td#expense-report-year');
-      // let reportsTableLink = $('td#expense-report-link');
-      //
-      // const clearReportsMonth = reportsTableMonth.forEach(function() {
-      //   reportsTableMonth.empty();
-      // })
-      // reportsTableMonth.empty();
-      // reportsTableYear.empty();
-      // reportsTableLink.empty();
 
       // let searchResults = data.map(function(report) {
       //   let result = $('td#expense-report-month').text(report.month);
@@ -57,4 +44,16 @@ function searchByYear() {
       // which will then arrange the data into the table properly (i hope)
     })
   })
+}
+
+function clearReportTable() {
+  let reportsTableMonth = $('td#expense-report-month')
+  let reportsTableYear = $('td#expense-report-year')
+  let reportsTableLink = $('td#expense-report-link')
+  // The varialble above needs to find the specific tds that need to be emptied
+  // so that I can fill them in with json data
+  // reportsTable.empty()
+  reportsTableMonth.empty()
+  reportsTableYear.empty()
+  reportsTableLink.empty()
 }
