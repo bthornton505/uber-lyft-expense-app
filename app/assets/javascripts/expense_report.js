@@ -17,7 +17,7 @@ function searchByYear() {
       clearReportTable();
 
       let searchResults = data.forEach(function(report) {
-        // debugger
+        debugger
         console.log(report)
         // let reportMonth = $('td#expense-report-month').text(report.month);
         // let reportYear = $('td#expense-report-year').text(report.year);
@@ -52,7 +52,6 @@ function clearReportTable() {
   let reportsTableLink = $('td#expense-report-link')
   // The varialble above needs to find the specific tds that need to be emptied
   // so that I can fill them in with json data
-  // reportsTable.empty()
   reportsTableMonth.empty()
   reportsTableYear.empty()
   reportsTableLink.empty()
