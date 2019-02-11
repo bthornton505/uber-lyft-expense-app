@@ -4,7 +4,7 @@ class ExpensesController < ApplicationController
   def show
     @expense_report = ExpenseReport.find_by(id: params[:expense_report_id])
     @expense = Expense.find_by(id: params[:id])
-    binding.pry
+    # binding.pry
   end
 
   def new
