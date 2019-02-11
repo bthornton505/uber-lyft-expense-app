@@ -1,5 +1,5 @@
-$(function() {
-  searchByYear()
+$(document).ready(function() {
+  searchByYear();
 })
 
 // Variables
@@ -11,14 +11,14 @@ function searchByYear() {
   $('#year').on('change', function() {
     let year = this.value;
     // I now have the search parameter in a variable and use it to query the database
-    $.get(searchURL + year, function(data) {
+    $.getJSON(searchURL + year).done(function(data) {
       // Clear the table
       let reportTable = $('#expense-report-table')
       reportTable.empty();
 
       let searchResults = data.map(function(report) {
         // debugger
-        console.log(report)
+        // console.log(report)
         let result = "";
         result += '<tr id="' + report.id + '">';
         result += '<td id="expense-report-month">' + report.month + '</td>';
@@ -29,7 +29,6 @@ function searchByYear() {
       });
 
       reportTable.append(searchResults);
-
     })
   })
-}
+};
