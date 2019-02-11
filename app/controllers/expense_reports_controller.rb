@@ -9,8 +9,11 @@ class ExpenseReportsController < ApplicationController
       @user = current_user
       @reports = @user.expense_reports
       @expense_reports = @user.expense_reports.by_year(year)
-      render json: @expense_reports, status: 201
-      # render :index
+
+      respond_to do |format|
+        format.html { render :index }
+        format.json { render json: @expense_reports, status: 201 }
+      end
     end
   end
 
