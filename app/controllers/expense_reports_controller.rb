@@ -28,7 +28,7 @@ class ExpenseReportsController < ApplicationController
     @expenses = Expense.all.select {|e| e.expense_report_id == @expense_report.id}
     respond_to do |format|
       format.html { render :show }
-      format.json { render json: @expense_report }
+      format.json { render json: @expense_report, status: 201 }
     end
   end
 
