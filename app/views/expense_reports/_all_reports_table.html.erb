@@ -9,7 +9,7 @@
       <tr id="<%= expense_report.id %>">
         <td id="expense-report-month"><%= expense_report.month %></td>
         <td id="expense-report-year"><%= expense_report.year %></td>
-        <td id="expense-report-link"><%= link_to "View", expense_report_path(expense_report) %></td>
+        <td id="expense-report-link"><%= link_to "View", expense_report_path(expense_report), class: "report-link" %></td>
       </tr>
     <% end %>
   </tbody>
