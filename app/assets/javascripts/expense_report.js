@@ -1,5 +1,6 @@
 $(document).ready(function() {
   searchByYear();
+  showEachReport();
 })
 
 // Variables
@@ -32,3 +33,9 @@ function searchByYear() {
     })
   })
 };
+
+function showEachReport() {
+  $('#next-report').on('click', function() {
+    console.log(this);
+  })
+}
