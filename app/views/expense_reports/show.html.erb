@@ -11,3 +11,4 @@
 
 <%= link_to "Add Expense", new_expense_report_expense_path(@expense_report), class: "btn btn-secondary btn-sm" %>
 <%= link_to "Edit Expense Report", edit_user_expense_report_path(current_user, @expense_report), class: "btn btn-secondary btn-sm" %>
+<%= link_to "Next Report", '#', id: "next-report", class: "btn btn-secondary btn-sm", data_id: @expense_report.id %>
