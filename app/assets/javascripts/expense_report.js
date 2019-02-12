@@ -1,5 +1,6 @@
 $(document).ready(function() {
   searchByYear();
+  getReportsData()
   showEachReport();
 })
 
@@ -19,7 +20,7 @@ function searchByYear() {
 
       let searchResults = data.map(function(report) {
         // debugger
-        // console.log(report)
+        console.log(report)
         let result = "";
         result += '<tr id="' + report.id + '">';
         result += '<td id="expense-report-month">' + report.month + '</td>';
@@ -34,8 +35,29 @@ function searchByYear() {
   })
 };
 
-function showEachReport() {
-  $('#next-report').on('click', function() {
-    console.log(this);
+function getReportsData() {
+  $('.report-link').on('click', function(e) {
+    e.preventDefault()
+    let reportLink = this['href']
+    let reportLinkResults = $.get(reportLink)
+    console.log(reportLinkResults)
   })
 }
+
+function showEachReport() {
+  $('#next-report').on('click', function() {
+    let nextId = parseInt($("#next-report").attr("data_id")) + 1;
+    console.log(nextId);
+  })
+}
+
+// <a id="next-report" class="btn btn-secondary btn-sm" data_id="1" href="#">Next Report</a>
+// <tbody>
+//   <% @expenses.each do |expense| %>
+//     <tr>
+//       <td><%= expense.categories.last.name %></td>
+//       <td>$<%= expense.cost %></td>
+//       <td><%= link_to "View", expense_report_expense_path(@expense_report.id, expense) %></td>
+//     </tr>
+//   <% end %>
+// </tbody>
