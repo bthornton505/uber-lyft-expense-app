@@ -49,9 +49,10 @@ function showEachReport() {
     $.getJSON('/expense_reports/' + nextId, function(data){
       let expenseTable = $('#expenses-table')
       expenseTable.empty()
-
-      let expenseReportTitle = $('#expense-report-details').text(`${data['month']} | ${data['year']}`)
+      
       // This updates the reports month and year
+      let expenseReportTitle = $('#expense-report-details').text(`${data['month']} | ${data['year']}`)
+
 
       let expenses = data["expenses"]
       let expenseList = expenses.map(function(expense) {
@@ -66,7 +67,8 @@ function showEachReport() {
       })
       $(expenseTable).append(expenseList)
       // debugger
-       $("#next-report").attr("data_id", data["id"]);
+      // This sets the data id to the current reports so it can properly load the next report
+      $("#next-report").attr("data_id", data["id"]);
     })
   })
 }
