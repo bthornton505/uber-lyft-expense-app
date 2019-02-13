@@ -1,6 +1,5 @@
 $(document).ready(function() {
   searchByYear();
-  getReportsData()
   showEachReport();
 })
 
@@ -47,17 +46,38 @@ function getReportsData() {
 function showEachReport() {
   $('#next-report').on('click', function() {
     let nextId = parseInt($("#next-report").attr("data_id")) + 1;
-    console.log(nextId);
+    $.getJSON('/expense_reports/' + nextId, function(data){
+      let expenseTable = $('#expenses-table')
+      expenseTable.empty()
+
+      let expenseReportTitle = $('#expense-report-details').text(`${data['month']} | ${data['year']}`)
+      // This updates the reports month and year
+
+      let expenses = data["expenses"]
+      let expenseList = expenses.map(function(expense) {
+        console.log(expense)
+        result = "";
+        result += '<tr id="' + expense.id + '">';
+        result += '<td class="expense-category">expense category</td>';
+        result += '<td class="expense-cost">$' + expense.cost + '</td>';
+        result += `<td class="expense-link"><a href="#">View</a></td>`;
+
+        return result;
+      })
+      $(expenseTable).append(expenseList)
+      // debugger
+       $("#next-report").attr("data_id", data["id"]);
+    })
   })
 }
 
 // <a id="next-report" class="btn btn-secondary btn-sm" data_id="1" href="#">Next Report</a>
 // <tbody>
 //   <% @expenses.each do |expense| %>
-//     <tr>
-//       <td><%= expense.categories.last.name %></td>
-//       <td>$<%= expense.cost %></td>
-//       <td><%= link_to "View", expense_report_expense_path(@expense_report.id, expense) %></td>
+//     <tr id="<%= expense.id %>">
+//       <td class="expense-category"><%= expense.categories.last.name %></td>
+//       <td class="expense-cost">$<%= expense.cost %></td>
+//       <td class="expense-link"><%= link_to "View", expense_report_expense_path(@expense_report.id, expense) %></td>
 //     </tr>
 //   <% end %>
 // </tbody>
