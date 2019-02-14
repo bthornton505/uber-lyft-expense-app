@@ -49,19 +49,19 @@ function showEachReport() {
     $.getJSON('/expense_reports/' + nextId, function(data){
       let expenseTable = $('#expenses-table')
       expenseTable.empty()
-      
+
       // This updates the reports month and year
       let expenseReportTitle = $('#expense-report-details').text(`${data['month']} | ${data['year']}`)
 
-
+      let expenseReport = data
       let expenses = data["expenses"]
       let expenseList = expenses.map(function(expense) {
-        console.log(expense)
+        // debugger
         result = "";
         result += '<tr id="' + expense.id + '">';
         result += '<td class="expense-category">expense category</td>';
         result += '<td class="expense-cost">$' + expense.cost + '</td>';
-        result += `<td class="expense-link"><a href="#">View</a></td>`;
+        result += `<td class="expense-link"><a href="/expense_reports/${expense.expense_report_id}/expenses/${expense.id}">View</a></td>`;
 
         return result;
       })
