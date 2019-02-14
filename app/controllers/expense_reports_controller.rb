@@ -26,9 +26,10 @@ class ExpenseReportsController < ApplicationController
   def show
     @expense_report = ExpenseReport.find_by(id: params[:id])
     @expenses = Expense.all.select {|e| e.expense_report_id == @expense_report.id}
+    @categories = Category.all
     respond_to do |format|
       format.html { render :show }
-      format.json { render json: @expense_report, status: 201 }
+      format.json { render json: @expense_report,  status: 201 }
     end
   end
 
@@ -36,6 +37,11 @@ class ExpenseReportsController < ApplicationController
     @user = current_user
     @expense_reports = @user.expense_reports
     @reports = @user.expense_reports
+
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @reports }
+    end
   end
 
   def new
