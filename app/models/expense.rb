@@ -3,7 +3,7 @@ class Expense < ActiveRecord::Base
   has_many :comments
   # The below relationship needs to be a has_one relationship
   # It will no longer be through the comments join table
-  has_and_belongs_to_many :categories
+  belongs_to :category
 
   validates :month, presence: true
   validates :cost, presence: true
