@@ -1,5 +1,5 @@
 class CategorySerializer < ActiveModel::Serializer
   attributes :id, :name
-  has_many :expenses
-  has_many :comments
+  belongs_to :expenses
+  
 end
