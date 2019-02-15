@@ -7,7 +7,7 @@
   <tbody id="expenses-table">
     <% @expenses.each do |expense| %>
       <tr id="<%= expense.id %>">
-        <td class="expense-category"><%= expense.categories.last.name %></td>
+        <td class="expense-category"><%= expense.categories[0].name %></td>
         <td class="expense-cost">$<%= expense.cost %></td>
         <td class="expense-link"><%= link_to "View", expense_report_expense_path(@expense_report.id, expense) %></td>
       </tr>
