@@ -6,7 +6,7 @@ class ExpensesController < ApplicationController
     @expense = Expense.find_by(id: params[:id])
     respond_to do |format|
       format.html { render :show }
-      format.json { render json: @expense }
+      format.json { render json: @expense, status: 201 }
     end
   end
 
