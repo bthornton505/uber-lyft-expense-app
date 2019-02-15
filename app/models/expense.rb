@@ -1,6 +1,8 @@
 class Expense < ActiveRecord::Base
   belongs_to :expense_report
   has_many :comments
+  # The below relationship needs to be a has_one relationship
+  # It will no longer be through the comments join table 
   has_many :categories, through: :comments
 
   validates :month, presence: true

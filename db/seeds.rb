@@ -49,23 +49,3 @@ end
 # expense_report_years.each do |year|
 #   ExpenseReport.create( year: year )
 # end
-
-# This creates expense months a user can pick from
-# expense_months = [
-#   "January",
-#   "February",
-#   "March",
-#   "April",
-#   "May",
-#   "June",
-#   "July",
-#   "August",
-#   "September",
-#   "October",
-#   "November",
-#   "December"
-# ]
-#
-# expense_months.each do |month|
-#   Expense.create( month: month )
-# end

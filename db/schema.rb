@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2018_12_19_214219) do
   create_table "comments", force: :cascade do |t|
     t.string "description"
     t.integer "expense_id"
+    # I want category id to be taken out
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(version: 2018_12_19_214219) do
   end
 
   create_table "expenses", force: :cascade do |t|
+    # I want month to be taken out and be shown using the expense report month
     t.string "month"
     t.integer "cost"
     t.integer "expense_report_id"
@@ -44,6 +46,7 @@ ActiveRecord::Schema.define(version: 2018_12_19_214219) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
+    # I need to add an email column for stronger authentication
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
