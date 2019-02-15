@@ -1,5 +1,5 @@
 class RemoveCategoryIdFromComments < ActiveRecord::Migration[5.2]
   def change
-    remove_column :comments, :category_id
+    remove_column :comments, :category_id, :integer
   end
 end
