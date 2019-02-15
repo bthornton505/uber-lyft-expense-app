@@ -8,7 +8,7 @@
   <%= f.number_field :cost, class: "form-control", placeholder: "Enter cost" %>
   <br>
   <%= f.label :category %>
-  <%= f.collection_select(:category_ids, @categories, :id, :name, {prompt: "Select Category"}, class: "form-control") %>
+  <%= f.collection_select(:category_id, @categories, :id, :name, {prompt: "Select Category"}, class: "form-control") %>
 
   <%= f.fields_for :comments do |comment_builder| %>
     <br>
