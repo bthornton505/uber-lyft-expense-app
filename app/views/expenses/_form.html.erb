@@ -6,11 +6,11 @@
   <br>
   <%= f.label :cost, "Cost" %>
   <%= f.number_field :cost, class: "form-control", placeholder: "Enter cost" %>
+  <br>
+  <%= f.label :category %>
+  <%= f.collection_select(:category_ids, @categories, :id, :name, {prompt: "Select Category"}, class: "form-control") %>
 
   <%= f.fields_for :comments do |comment_builder| %>
-    <br>
-    <%= comment_builder.label :category %>
-    <%= comment_builder.collection_select(:category_id, @categories, :id, :name, {prompt: "Select Category"}, class: "form-control") %>
     <br>
     <%= comment_builder.label :description %>
     <%= comment_builder.text_area :description, class: "form-control" %>
