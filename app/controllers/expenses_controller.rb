@@ -70,7 +70,7 @@ class ExpensesController < ApplicationController
   private
 
   def expense_params
-    params.require(:expense).permit(:month, :cost, :expense_report_id, :comments_attributes => [:description, :expense_id, :category_id])
+    params.require(:expense).permit(:month, :cost, :expense_report_id, :category_ids, :comments_attributes => [:description, :expense_id])
   end
 
 end
