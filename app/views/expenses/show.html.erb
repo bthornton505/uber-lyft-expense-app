@@ -9,14 +9,14 @@
 <h3>Expense Category</h3>
 
   <ul> <!-- need to change this so it shows all the categories -->
-    <li><%= @expense.categories.last.name %></li>
+    <li><%= @expense.categories[0].name %></li>
   </ul>
 
 <h4>Expense Comments</h4>
 
   <ul id="expense_comments"> <!-- need to change this so it shows all the comments -->
     <li><%= @expense.comments.last.description %></li>
-    <%# <%= render partial: 'expense_comments' %> 
+    <%# <%= render partial: 'expense_comments' %>
   </ul>
 
   <%= link_to "Add Comment", new_comment_path(:expense_id => @expense.id) %>
