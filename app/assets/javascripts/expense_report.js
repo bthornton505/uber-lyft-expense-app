@@ -49,7 +49,7 @@ function showEachReport() {
     $.getJSON('/expense_reports/' + nextId, function(data){
       let expenseTable = $('#expenses-table')
       expenseTable.empty()
-      debugger
+      // debugger
       // This updates the reports month and year
       let expenseReportTitle = $('#expense-report-details').text(`${data['month']} | ${data['year']}`)
 
