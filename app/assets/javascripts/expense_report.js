@@ -59,7 +59,7 @@ function showEachReport() {
         // debugger
         result = "";
         result += '<tr id="' + expense.id + '">';
-        result += '<td class="expense-category">category</td>';
+        result += '<td class="expense-category">' + expense.category_id + '</td>';
         result += '<td class="expense-cost">$' + expense.cost + '</td>';
         result += `<td class="expense-link"><a href="/expense_reports/${expense.expense_report_id}/expenses/${expense.id}">View</a></td>`;
 
