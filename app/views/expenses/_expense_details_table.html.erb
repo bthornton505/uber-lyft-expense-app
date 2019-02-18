@@ -1,0 +1,18 @@
+<table class="table">
+  <thead class="table-striped">
+    <th>Month</th>
+    <th>Year</th>
+    <th>Cost</th>
+    <th>Category</th>
+    <th>Comments</th>
+  </thead>
+  <tbody id="expense-table">
+    <tr id="<%= @expense.expense_report.month %>">
+      <td id="expense-month"><%= expense_report.month %></td>
+      <td id="expense-year"><%= expense_report.year %></td>
+      <td id="expense-cost">$<%= @expense.cost %></td>
+      <td id="expense-category"><%= @expense.category.name %></td>
+      <td id="expense-comments"><%= @expense.comments.last.description %></td>
+    </tr>
+  </tbody>
+</table>
