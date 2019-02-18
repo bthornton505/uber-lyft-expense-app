@@ -1,6 +1,8 @@
 <br>
 <h1>Expense Details</h1>
 
+<%# <%= render partial: 'expense_details_table', locals: { expense: @expense, expense_report: @expense_report } %> 
+
 <ul>
   <li>Month: <%= @expense.expense_report.month %></li>
   <li>Cost: $<%= @expense.cost %></li>
