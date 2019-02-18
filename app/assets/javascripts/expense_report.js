@@ -51,7 +51,7 @@ function showEachReport() {
       expenseTable.empty()
       // debugger
       // This updates the reports month and year
-      let expenseReportTitle = $('#expense-report-details').text(`${data['expense_report'].month} | ${data['expense_report'].year}`)
+      let expenseReportTitle = $('#expense-report-details').text(`${data['month']} | ${data['year']}`)
 
       // let expenseReport = data
       let expenses = data["expenses"]
@@ -59,7 +59,7 @@ function showEachReport() {
         // debugger
         result = "";
         result += '<tr id="' + expense.id + '">';
-        // result += '<td class="expense-category">' + expense.category_id + '</td>';
+        result += '<td class="expense-category">' + expense['category'].name + '</td>';
         result += '<td class="expense-cost">$' + expense.cost + '</td>';
         result += `<td class="expense-link"><a href="/expense_reports/${expense.expense_report_id}/expenses/${expense.id}">View</a></td>`;
 
