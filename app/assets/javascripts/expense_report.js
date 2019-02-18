@@ -17,7 +17,7 @@ function searchByYear() {
       let reportTable = $('#expense-report-table')
       reportTable.empty();
 
-      let searchResults = data.map(function(report) {
+      let searchResults = data.map(report => {
         console.log(report)
         let result = "";
         result += '<tr id="' + report.id + '">';
@@ -33,7 +33,7 @@ function searchByYear() {
   })
 };
 
-// This will be used to go through individual expense reports and display associated data 
+// This will be used to go through individual expense reports and display associated data
 function showEachReport() {
   $('#next-report').on('click', function() {
     let nextId = parseInt($("#next-report").attr("data_id")) + 1;
@@ -46,7 +46,7 @@ function showEachReport() {
 
       let expenses = data["expenses"]
       // This builds new expenses table with JSON data
-      let expenseList = expenses.map(function(expense) {
+      let expenseList = expenses.map(expense => {
 
         result = "";
         result += '<tr id="' + expense.id + '">';
