@@ -1,7 +1,7 @@
 <br>
 <h1>Expense Details</h1>
 
-<%# <%= render partial: 'expense_details_table', locals: { expense: @expense, expense_report: @expense_report } %> 
+<%# <%= render partial: 'expense_details_table', locals: { expense: @expense, expense_report: @expense_report } %>
 
 <ul>
   <li>Month: <%= @expense.expense_report.month %></li>
@@ -17,7 +17,7 @@
 <h4>Expense Comments</h4>
 
   <ul id="expense_comments"> <!-- need to change this so it shows all the comments -->
-    <li><%= @expense.comments.last.description %></li>
+    <li><%= @expense.comments[0].description %></li>
     <%# <%= render partial: 'expense_comments' %>
   </ul>
 
