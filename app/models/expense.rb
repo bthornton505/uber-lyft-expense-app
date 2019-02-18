@@ -16,4 +16,8 @@ class Expense < ActiveRecord::Base
     end
   end
 
+  def self.category=(category)
+    write_attribute(:category, self.category.name)
+  end
+
 end
