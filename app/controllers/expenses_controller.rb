@@ -4,6 +4,8 @@ class ExpensesController < ApplicationController
   def show
     @expense_report = ExpenseReport.find_by(id: params[:expense_report_id])
     @expense = Expense.find_by(id: params[:id])
+    @comment = @expense.comments.build
+    @comments = @expense.comments.all
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @expense, status: 201 }
