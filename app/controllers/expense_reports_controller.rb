@@ -26,10 +26,10 @@ class ExpenseReportsController < ApplicationController
   def show
     @expense_report = ExpenseReport.find_by(id: params[:id])
     @expenses = Expense.all.select {|e| e.expense_report_id == @expense_report.id}
-    @categories = Expense.includes(:category).map {|e| e.category.expenses if e.expense_report_id == @expense_report.id }
+    @categories = Expense.includes(:category).map {|e| e.category if e.expense_report_id == @expense_report.id }
     respond_to do |format|
       format.html { render :show }
-      format.json { render json: @expense_report, status: 201 }
+      format.json { render json: { expense_report: @expense_report, expenses: @expenses, categories: @categories }, status: 201 }
     end
     # binding.pry
   end
