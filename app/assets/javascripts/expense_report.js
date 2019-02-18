@@ -6,8 +6,8 @@ $(document).ready(function() {
 // Variables
 let searchURL = 'https://localhost:3000/expense_reports/by_year?utf8=%E2%9C%93&year='
 let rootURL = 'https://localhost:3000'
-// This will be used to search reports by year
 
+// This will be used to search reports by year
 function searchByYear() {
   $('#year').on('change', function() {
     let year = this.value;
@@ -18,7 +18,6 @@ function searchByYear() {
       reportTable.empty();
 
       let searchResults = data.map(function(report) {
-        // debugger
         console.log(report)
         let result = "";
         result += '<tr id="' + report.id + '">';
@@ -34,29 +33,21 @@ function searchByYear() {
   })
 };
 
-function getReportsData() {
-  $('.report-link').on('click', function(e) {
-    e.preventDefault()
-    let reportLink = this['href']
-    let reportLinkResults = $.get(reportLink)
-    console.log(reportLinkResults)
-  })
-}
-
+// This will be used to go through individual expense reports and display associated data 
 function showEachReport() {
   $('#next-report').on('click', function() {
     let nextId = parseInt($("#next-report").attr("data_id")) + 1;
     $.getJSON('/expense_reports/' + nextId, function(data){
       let expenseTable = $('#expenses-table')
       expenseTable.empty()
-      // debugger
+
       // This updates the reports month and year
       let expenseReportTitle = $('#expense-report-details').text(`${data['month']} | ${data['year']}`)
 
-      // let expenseReport = data
       let expenses = data["expenses"]
+      // This builds new expenses table with JSON data
       let expenseList = expenses.map(function(expense) {
-        // debugger
+
         result = "";
         result += '<tr id="' + expense.id + '">';
         result += '<td class="expense-category">' + expense['category'].name + '</td>';
@@ -72,14 +63,3 @@ function showEachReport() {
     })
   })
 }
-
-// <a id="next-report" class="btn btn-secondary btn-sm" data_id="1" href="#">Next Report</a>
-// <tbody>
-//   <% @expenses.each do |expense| %>
-//     <tr id="<%= expense.id %>">
-//       <td class="expense-category"><%= expense.categories.last.name %></td>
-//       <td class="expense-cost">$<%= expense.cost %></td>
-//       <td class="expense-link"><%= link_to "View", expense_report_expense_path(@expense_report.id, expense) %></td>
-//     </tr>
-//   <% end %>
-// </tbody>
