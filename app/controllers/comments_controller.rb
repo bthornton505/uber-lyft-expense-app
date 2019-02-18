@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
   def new
     @expense = Expense.find_by(id: params[:expense_id])
     @comment = @expense.comments.build
-    @categories = Category.all
   end
 
   def create
