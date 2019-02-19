@@ -8,7 +8,7 @@ let searchURL = 'https://localhost:3000/expense_reports/by_year?utf8=%E2%9C%93&y
 let rootURL = 'https://localhost:3000'
 
 // This will be used to search reports by year
-function searchByYear() {
+const searchByYear = () => {
   $('#year').on('change', function() {
     let year = this.value;
     // I now have the search parameter in a variable and use it to query the database
@@ -34,7 +34,7 @@ function searchByYear() {
 };
 
 // This will be used to go through individual expense reports and display associated data
-function showEachReport() {
+const showEachReport = () => {
   $('#next-report').on('click', function() {
     let nextId = parseInt($("#next-report").attr("data_id")) + 1;
     $.getJSON('/expense_reports/' + nextId, function(data){
