@@ -3,8 +3,19 @@ $(function () {
 });
 
 function postComment() {
-  $('#add-comment').on('click', function(e) {
+  $('#new_comment').on('submit', function(e) {
     e.preventDefault();
-    console.log(this);
+    let data = $(this).serialize();
+    url = this.action
+    // console.log(data)
+
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: data,
+      success: function(response) {
+        console.log(response)
+      }
+    })
   })
 };
