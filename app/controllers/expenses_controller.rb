@@ -29,6 +29,8 @@ class ExpensesController < ApplicationController
   end
 
   def edit
+    # objects are set in the before actions
+    # expense report, expense, and categories
   end
 
   def update
