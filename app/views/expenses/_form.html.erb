@@ -8,9 +8,7 @@
   <%= f.number_field :cost, class: "form-control", placeholder: "Enter cost" %>
   <br>
   <%= f.label :category %>
-  <!-- Maybe try options_for_select and provide categories, this would allow for dropping of category model -->
   <%= f.collection_select(:category_id, @categories, :id, :name, {prompt: "Select Category"}, class: "form-control") %>
-  <%# <%= f.collection_select(["Gas", "Car Insurance", "Car Payment", "Maintenance", "Car Wash", "Phone Payment", "Miscellaneous"], selected: f.object.category, {prompt: "Select Category"}, class: "form-control") %> 
 
   <%= f.fields_for :comments do |comment_builder| %>
     <br>
