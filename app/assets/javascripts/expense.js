@@ -1,12 +1,11 @@
 $(document).ready(function() {
-  postComment();
+  addComment();
 });
 
-function postComment() {
+const addComment = () => {
   $('#new_comment').on('submit', function(e) {
     let data = $(this).serialize();
     url = this.action
-    // console.log(data)
 
     $.ajax({
       type: "POST",
