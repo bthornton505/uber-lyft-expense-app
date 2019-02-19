@@ -1,10 +1,9 @@
-$(function () {
+$(document).ready(function() {
   postComment();
 });
 
 function postComment() {
   $('#new_comment').on('submit', function(e) {
-    e.preventDefault();
     let data = $(this).serialize();
     url = this.action
     // console.log(data)
@@ -14,8 +13,12 @@ function postComment() {
       url: url,
       data: data,
       success: function(response) {
-        console.log(response)
+        $('#comment_description').val("");
+        let $ul = $('#expense-comments')
+        $ul.append(response);
       }
     })
+
+    e.preventDefault();
   })
 };
