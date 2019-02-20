@@ -20,7 +20,8 @@ class ExpenseReportsController < ApplicationController
   def show
     @expenses = Expense.all.select {|e| e.expense_report_id == @expense_report.id}
     @categories = Expense.includes(:category).map {|e| e.category if e.expense_report_id == @expense_report.id }
-
+    @next_report = @expense_report.next(@user)
+    @prev_report = @expense_report.prev(@user)
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @expense_report, status: 201 }
@@ -30,7 +31,7 @@ class ExpenseReportsController < ApplicationController
   def index
     @expense_reports = @user.expense_reports
     @reports = @user.expense_reports
-    # binding.pry
+
     respond_to do |format|
       format.html { render :index }
       format.json { render json: @reports }
