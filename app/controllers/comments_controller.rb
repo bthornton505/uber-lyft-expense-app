@@ -12,7 +12,6 @@ class CommentsController < ApplicationController
     if @comment.save
       flash[:success] = "Successfully added comment."
       render :new_comment, :layout => false
-      # redirect_to expense_report_expense_path(@comment.expense.expense_report, @comment.expense)
     else
       flash[:alert] = "Something went wrong creating this comment. Try again."
       @categories = Category.all
