@@ -11,8 +11,8 @@
 
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="<%= user_path(current_user) %>">Tax Driver</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand" href="<%= user_path(current_user) if logged_in? %>">Tax Driver</a>
+      <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -22,7 +22,7 @@
             <li class="nav-item">
               <%= link_to "Profile", user_expense_reports_path(current_user), class: "nav-link" %>
             </li>
-            
+
             <li class="nav-item">
               <%= link_to "Sign Out", logout_path, method: :delete, class: "nav-link" %>
             </li>
