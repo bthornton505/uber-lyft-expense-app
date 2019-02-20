@@ -6,5 +6,6 @@
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
     <a class="dropdown-item" href="<%= new_expense_report_expense_path(@expense_report) %>">Add Expense</a>
     <a class="dropdown-item" href="<%= edit_user_expense_report_path(current_user, @expense_report) %>">Edit Report</a>
+    <a class="dropdown-item" href="<%= user_expense_reports_path(current_user) %>">All Reports</a>
   </div>
 </div>
