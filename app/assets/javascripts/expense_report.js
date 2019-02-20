@@ -1,6 +1,7 @@
 $(function() {
   searchByYear();
-  // showEachReport();
+  showNextReport();
+  // showPreviousReport();
 })
 
 // URL Variables
@@ -27,10 +28,36 @@ const searchByYear = () => {
 };
 
 // This will be used to go through individual expense reports and display associated data
-const showEachReport = () => {
-  $('#next-report').on('click', function() {
+const showNextReport = () => {
+  $('#next-report').on('click', function(e) {
+    e.preventDefault();
     let nextId = parseInt($("#next-report").attr("data_id")) + 1;
     $.getJSON('/expense_reports/' + nextId, function(data){
+      let expenseTable = $('#expenses-table')
+      expenseTable.empty()
+
+      // This updates the reports month and year
+      let expenseReportTitle = $('#expense-report-details').text(`${data['month']} | ${data['year']}`)
+
+      let expenses = data["expenses"]
+      // This builds new expenses table with JSON data
+      expenses.map(expenses => {
+        let expenseList = new Expense(expenses)
+        let reportExpenses = expenseList.renderReportExpenses();
+        $(expenseTable).append(reportExpenses)
+      });
+      // This sets the data id to the current reports so it can properly load the next report
+      $("#next-report").attr("data_id", data["id"]);
+    })
+  })
+}
+
+const showPreviousReport = () => {
+  $('#prev-report').on('click', function(e) {
+    e.preventDefault();
+    let prevId = parseInt($("#next-report").attr("data_id")) - 1;
+    console.log(prevId)
+    $.getJSON('/expense_reports/' + prevId, function(data){
       let expenseTable = $('#expenses-table')
       expenseTable.empty()
 
@@ -46,7 +73,7 @@ const showEachReport = () => {
         $(expenseTable).append(reportExpenses)
       });
       // This sets the data id to the current reports so it can properly load the next report
-      $("#next-report").attr("data_id", data["id"]);
+      $("#prev-report").attr("data_id", data["id"]);
     })
   })
 }
