@@ -30,7 +30,7 @@ class ExpenseReportsController < ApplicationController
   def index
     @expense_reports = @user.expense_reports
     @reports = @user.expense_reports
-
+    # binding.pry
     respond_to do |format|
       format.html { render :index }
       format.json { render json: @reports }
