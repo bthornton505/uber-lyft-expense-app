@@ -1,6 +1,6 @@
 $(function() {
   searchByYear();
-  showEachReport();
+  // showEachReport();
 })
 
 // URL Variables
