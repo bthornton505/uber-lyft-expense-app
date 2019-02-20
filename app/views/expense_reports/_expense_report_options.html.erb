@@ -1,0 +1,10 @@
+<div class="dropdown">
+  <a class="btn btn-outline-secondary btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Options
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="<%= new_expense_report_expense_path(@expense_report) %>">Add Expense</a>
+    <a class="dropdown-item" href="<%= edit_user_expense_report_path(current_user, @expense_report) %>">Edit Report</a>
+  </div>
+</div>
