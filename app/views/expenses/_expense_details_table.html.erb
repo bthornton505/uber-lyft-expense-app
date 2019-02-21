@@ -4,7 +4,7 @@
     <th>Year</th>
     <th>Cost</th>
     <th>Category</th>
-    <th>Comments</th>
+    <th>Delete?</th>
   </thead>
   <tbody id="expense-table">
     <tr id="<%= @expense.expense_report.month %>">
@@ -12,7 +12,7 @@
       <td id="expense-year"><%= expense_report.year %></td>
       <td id="expense-cost">$<%= @expense.cost %></td>
       <td id="expense-category"><%= @expense.category.name %></td>
-      <td id="expense-comments"><%= @expense.comments.last.description %></td>
+      <td id="delete-expense"><%= link_to "Yes", expense_report_expense_path(@expense_report.id, @expense), method: :delete, data: { confirm: 'Are you sure you want to delete this expense?' } %></td>
     </tr>
   </tbody>
 </table>
