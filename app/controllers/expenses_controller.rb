@@ -1,6 +1,6 @@
 class ExpensesController < ApplicationController
   before_action :login_required, :set_report
-  before_action :set_expense, only: [:show, :edit, :update, :delete]
+  before_action :set_expense, only: [:show, :edit, :update, :destroy]
   before_action :set_categories, only: [:new, :create, :edit, :update]
 
   def show
