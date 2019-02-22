@@ -38,7 +38,7 @@ gem 'dotenv-rails'
 gem 'thin'
 
 # Bootstrap is gem to help with frontend design
-gem 'bootstrap', '~> 4.1.3'
+gem "bootstrap", ">= 4.3.1"
 gem 'jquery-rails'
 gem 'popper_js', '~> 1.14.5'
 
