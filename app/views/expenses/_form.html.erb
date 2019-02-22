@@ -12,7 +12,7 @@
 
   <%= f.fields_for :comments do |comment_builder| %>
     <br>
-    <%= comment_builder.label :description %>
+    <%= comment_builder.label :description, "Comment" %>
     <%= comment_builder.text_area :description, class: "form-control" %>
 
   <% end %>
