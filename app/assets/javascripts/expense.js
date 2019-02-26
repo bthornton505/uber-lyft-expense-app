@@ -43,7 +43,7 @@ Expense.prototype.renderReportExpenses = function() {
   return reportExpenses;
 }
 
-// TRIED TO USE CLASS CONSTRUCTOR SYNTAX BUT DOESN'T WORK YET 
+// TRIED TO USE CLASS CONSTRUCTOR SYNTAX BUT DOESN'T WORK YET
 // class Expense {
 //   constructor(id, month, cost, expense_report_id, category, comments) {
 //     this.id = id;
