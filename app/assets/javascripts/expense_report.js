@@ -95,3 +95,26 @@ ExpenseReport.prototype.renderSearchResults = function() {
 
   return expenseReportHtml;
 }
+
+// TRIED CLASS CONSTRUCTOR SYNTAX BUT DOESN'T WORK YET
+
+// class ExpenseReport {
+//   constructor(id, month, year, expenses) {
+//     this.id = id;
+//     this.month = month;
+//     this.year = year;
+//     this.expenses = expenses
+//   }
+//
+//   renderSearchResults() {
+//     let expenseReportHtml = `
+//       <tr id="${this.id}">
+//         <td id="expense-report-month">${this.month}</td>
+//         <td id="expense-report-year">${this.year}</td>
+//         <td id="expense-report-year"><a href="/expense_reports/${this.id}">View</a></td>
+//       </tr>
+//     `
+//
+//     return expenseReportHtml;
+//   }
+// }
