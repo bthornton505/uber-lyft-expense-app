@@ -6,7 +6,6 @@ $(function() {
 
 // URL Variables
 let searchURL = 'https://localhost:3000/expense_reports/by_year?utf8=%E2%9C%93&year='
-let rootURL = 'https://localhost:3000'
 
 // This will be used to search reports by year
 const searchByYear = () => {
