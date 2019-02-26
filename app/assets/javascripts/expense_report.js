@@ -32,14 +32,14 @@ const showNextReport = () => {
     e.preventDefault();
     let nextId = parseInt($("#next-report").attr("data_id")) + 1;
     $.getJSON('/expense_reports/' + nextId, function(data){
+      // Clear the expense table
       let expenseTable = $('#expenses-table')
       expenseTable.empty()
-
       // This updates the reports month and year
       let expenseReportTitle = $('#expense-report-details').text(`${data['month']} | ${data['year']}`)
 
       let expenses = data["expenses"]
-      // This builds new expenses table with JSON data
+      // Build the next reports expense table with JSON data
       expenses.map(expenses => {
         let expenseList = new Expense(expenses)
         let reportExpenses = expenseList.renderReportExpenses();
