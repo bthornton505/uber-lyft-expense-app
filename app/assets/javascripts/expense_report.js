@@ -1,6 +1,7 @@
 $(function() {
   searchByYear();
   showNextReport();
+  sortByCost();
   // showPreviousReport();
 })
 
@@ -17,7 +18,7 @@ const searchByYear = () => {
       let reportTable = $('#expense-report-table')
       reportTable.empty();
       // take the JSON data and render the search results
-      data.map(reports => {
+      data.forEach(reports => {
         let searchReports = new ExpenseReport(reports)
         let reportsHtml = searchReports.renderSearchResults()
         reportTable.append(reportsHtml);
@@ -37,6 +38,8 @@ const showNextReport = () => {
       expenseTable.empty()
       // This updates the reports month and year
       let expenseReportTitle = $('#expense-report-details').text(`${data['month']} | ${data['year']}`)
+      // Update cost button with current data-id
+      let sortExpensesByCost = $('#sort-cost').attr('data_id', data["id"])
 
       let expenses = data["expenses"]
       // Build the next reports expense table with JSON data
@@ -51,28 +54,54 @@ const showNextReport = () => {
   })
 }
 
-const showPreviousReport = () => {
-  $('#prev-report').on('click', function(e) {
+// This doesn't work properly yet...
+// const showPreviousReport = () => {
+//   $('#prev-report').on('click', function(e) {
+//     e.preventDefault();
+//     let prevId = parseInt($("#next-report").attr("data_id")) - 1;
+//     console.log(prevId)
+//     $.getJSON('/expense_reports/' + prevId, function(data){
+//       let expenseTable = $('#expenses-table')
+//       expenseTable.empty()
+//
+//       // This updates the reports month and year
+//       let expenseReportTitle = $('#expense-report-details').text(`${data['month']} | ${data['year']}`)
+//
+//       let expenses = data["expenses"]
+//       // This builds new expenses table with JSON data
+//       expenses.map(expenses => {
+//         // debugger
+//         let expenseList = new Expense(expenses)
+//         let reportExpenses = expenseList.renderReportExpenses();
+//         $(expenseTable).append(reportExpenses)
+//       });
+//       // This sets the data id to the current reports so it can properly load the next report
+//       $("#prev-report").attr("data_id", data["id"]);
+//     })
+//   })
+// }
+
+const sortByCost = () => {
+  $('#sort-cost').on('click', function(e) {
     e.preventDefault();
-    let prevId = parseInt($("#next-report").attr("data_id")) - 1;
-    console.log(prevId)
-    $.getJSON('/expense_reports/' + prevId, function(data){
-      let expenseTable = $('#expenses-table')
-      expenseTable.empty()
+    let expenseId = $(this).attr('data_id')
 
-      // This updates the reports month and year
-      let expenseReportTitle = $('#expense-report-details').text(`${data['month']} | ${data['year']}`)
+    $.getJSON('/expense_reports/' + expenseId, function(data) {
+      // Clear table of expenses to fill in new sorted expenses
+      let sortedExpenseTable = $('#expenses-table')
+      sortedExpenseTable.empty()
 
-      let expenses = data["expenses"]
-      // This builds new expenses table with JSON data
-      expenses.map(expenses => {
-        // debugger
-        let expenseList = new Expense(expenses)
-        let reportExpenses = expenseList.renderReportExpenses();
-        $(expenseTable).append(reportExpenses)
+      let expenses = data['expenses']
+      // Sort expenses by cost with most expensive at the top
+      let sortedExpenses = expenses.sort(function(a, b) {
+        return b.cost - a.cost;
+      })
+      // Take sorted expenses and create new table
+      sortedExpenses.forEach(expenses => {
+        let sortByCostExpenses = new Expense(expenses)
+        let sortByCostHtml = sortByCostExpenses.renderReportExpenses()
+        sortedExpenseTable.append(sortByCostHtml);
       });
-      // This sets the data id to the current reports so it can properly load the next report
-      $("#prev-report").attr("data_id", data["id"]);
     })
   })
 }
