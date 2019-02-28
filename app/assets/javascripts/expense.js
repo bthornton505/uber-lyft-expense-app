@@ -1,7 +1,3 @@
-$(document).ready(function() {
-  addComment();
-});
-
 const addComment = () => {
   $('#new_comment').on('submit', function(e) {
     let data = $(this).serialize();
@@ -42,6 +38,10 @@ Expense.prototype.renderReportExpenses = function() {
 
   return reportExpenses;
 }
+
+$(document).ready(function() {
+  addComment();
+});
 
 // TRIED TO USE CLASS CONSTRUCTOR SYNTAX BUT DOESN'T WORK YET
 // class Expense {
