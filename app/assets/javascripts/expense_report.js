@@ -5,19 +5,18 @@ $(function() {
   // showPreviousReport();
 })
 
-// URL Variables
-let searchURL = 'https://localhost:3000/expense_reports/by_year?utf8=%E2%9C%93&year='
-
 // This will be used to search reports by year
 const searchByYear = () => {
   $('#year').on('change', function() {
+    let searchURL =
+      'https://localhost:3000/expense_reports/by_year?utf8=%E2%9C%93&year='
     let year = this.value;
     // I now have the search parameter in a variable and use it to query the database
     $.getJSON(searchURL + year).done(function(data) {
       // Clear the table
       let reportTable = $('#expense-report-table')
       reportTable.empty();
-      // take the JSON data and render the search results
+      // take the JSON data, iterate each JSON objects, and render the search results
       data.forEach(reports => {
         let searchReports = new ExpenseReport(reports)
         let reportsHtml = searchReports.renderSearchResults()
@@ -43,7 +42,7 @@ const showNextReport = () => {
 
       let expenses = data["expenses"]
       // Build the next reports expense table with JSON data
-      expenses.map(expenses => {
+      expenses.forEach(expenses => {
         let expenseList = new Expense(expenses)
         let reportExpenses = expenseList.renderReportExpenses();
         $(expenseTable).append(reportExpenses)
@@ -69,7 +68,7 @@ const showNextReport = () => {
 //
 //       let expenses = data["expenses"]
 //       // This builds new expenses table with JSON data
-//       expenses.map(expenses => {
+//       expenses.forEach(expenses => {
 //         // debugger
 //         let expenseList = new Expense(expenses)
 //         let reportExpenses = expenseList.renderReportExpenses();
@@ -84,14 +83,15 @@ const showNextReport = () => {
 const sortByCost = () => {
   $('#sort-cost').on('click', function(e) {
     e.preventDefault();
-    let expenseId = $(this).attr('data_id')
+    let reportId = $(this).attr('data_id')
 
-    $.getJSON('/expense_reports/' + expenseId, function(data) {
+    $.getJSON('/expense_reports/' + reportId, function(data) {
       // Clear table of expenses to fill in new sorted expenses
       let sortedExpenseTable = $('#expenses-table')
       sortedExpenseTable.empty()
 
       let expenses = data['expenses']
+
       // Sort expenses by cost with most expensive at the top
       let sortedExpenses = expenses.sort(function(a, b) {
         return b.cost - a.cost;
