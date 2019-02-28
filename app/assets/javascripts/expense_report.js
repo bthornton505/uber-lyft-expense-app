@@ -1,10 +1,3 @@
-$(function() {
-  searchByYear();
-  showNextReport();
-  sortByCost();
-  // showPreviousReport();
-})
-
 // This will be used to search reports by year
 const searchByYear = () => {
   $('#year').on('change', function() {
@@ -124,6 +117,13 @@ ExpenseReport.prototype.renderSearchResults = function() {
 
   return expenseReportHtml;
 }
+
+$(function() {
+  searchByYear();
+  showNextReport();
+  sortByCost();
+  // showPreviousReport();
+})
 
 // TRIED CLASS CONSTRUCTOR SYNTAX BUT DOESN'T WORK YET
 
