@@ -1,3 +1,10 @@
+$(function() {
+  searchByYear();
+  showNextReport();
+  sortByCost();
+  // showPreviousReport();
+})
+
 // This will be used to search reports by year
 const searchByYear = () => {
   $('#year').on('change', function() {
@@ -86,9 +93,10 @@ const sortByCost = () => {
       let expenses = data['expenses']
 
       // Sort expenses by cost with most expensive at the top
-      let sortedExpenses = expenses.sort(function(a, b) {
+      let sortedExpenses = [...expenses].sort(function(a, b) {
         return b.cost - a.cost;
       })
+      // .filter(expense => expense.cost > 200);
       // Take sorted expenses and create new table
       sortedExpenses.forEach(expenses => {
         let sortByCostExpenses = new Expense(expenses)
@@ -117,13 +125,6 @@ ExpenseReport.prototype.renderSearchResults = function() {
 
   return expenseReportHtml;
 }
-
-$(function() {
-  searchByYear();
-  showNextReport();
-  sortByCost();
-  // showPreviousReport();
-})
 
 // TRIED CLASS CONSTRUCTOR SYNTAX BUT DOESN'T WORK YET
 
