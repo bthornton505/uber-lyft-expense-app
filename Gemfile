@@ -34,8 +34,7 @@ gem 'omniauth'
 gem 'omniauth-github'
 # Dotenv-rails helps to ensure that environment variables are correctly loaded into the ENV hash in a secure manner
 gem 'dotenv-rails'
-# Thin allows server to use https protocal
-gem 'thin'
+
 
 # Bootstrap is gem to help with frontend design
 gem "bootstrap", ">= 4.3.1"
@@ -65,6 +64,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # Thin allows server to use https protocal
+  gem 'thin'
   # Pry allows for easy debugging
   gem 'pry'
 end
