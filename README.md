@@ -26,7 +26,7 @@ Assuming you have Ruby, Rails and JQuery installed,
   - Run `$ rake db:migrate`
   - Run `$ rake db:seed`
   - Run `$ rails server`
-- Now you should have the app open up in your browser
+- Now navigate to the URL: localhost:3000 and you should be able to run the application
 
 <!-- In order to use the Github OmniAuth login, you will need to set up your own Github key and secret in a .env file in the root directory of the project. -->
 
