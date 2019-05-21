@@ -9,7 +9,7 @@ $(function() {
 const searchByYear = () => {
   $('#year').on('change', function() {
     let searchURL =
-      'https://localhost:3000/expense_reports/by_year?utf8=%E2%9C%93&year='
+      'http://localhost:3010/expense_reports/by_year?utf8=%E2%9C%93&year='
     let year = this.value;
     // I now have the search parameter in a variable and use it to query the database
     $.getJSON(searchURL + year).done(function(data) {
