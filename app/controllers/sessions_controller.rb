@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       @user = User.find_by(name: params[:session][:name])
       if @user && @user.authenticate(params[:session][:password])
         session[:user_id] = @user.id
-        redirect_to user_path(@user)
+        redirect_to user_expense_reports_path(@user)
       else
         flash.now.alert = "Incorrect name and/or password"
         render :new
