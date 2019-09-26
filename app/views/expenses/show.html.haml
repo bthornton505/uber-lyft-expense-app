@@ -1,0 +1,17 @@
+%br
+%h1 Expense Details
+
+= render :partial => 'expense_options'
+%br
+= render :partial => 'expense_details_table', :locals => { expense: @expense, expense_report: @expense_report }
+
+%br
+%h4 Expense Comments
+
+%ul{:id => "expense-comments"}
+  - @comments.each do |comment|
+    %li= comment.description
+
+  = render :partial => 'comments/new', :locals => { comment: @comment }
+
+%br
