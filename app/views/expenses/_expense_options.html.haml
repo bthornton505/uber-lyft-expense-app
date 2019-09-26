@@ -1,0 +1,17 @@
+.dropdown
+  %a.btn.btn-outline-secondary.btn-sm.dropdown-toggle#dropdownMenuLink {href: "#", data: {toggle: dropdown}} (role: "button", aria-haspopup: true, aria-expanded: false) Options
+
+  .dropdown-menu (:aria-labelledby => "dropdownMenuLink")
+  %a.dropdown-item {href: edit_expense_report_expense_path(@expense_report.id, @expense)} Edit
+  %a.dropdown-item {href: expense_report_path(@expense_report)} Current Report
+
+-# <div class="dropdown">
+-#   <a class="btn btn-outline-secondary btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+-#     Options
+-#   </a>
+-#
+-#   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+-#     <a class="dropdown-item" href="<%= edit_expense_report_expense_path(@expense_report.id, @expense) %>">Edit</a>
+-#     <a class="dropdown-item" href="<%= expense_report_path(@expense_report) %>">Current Report</a>
+-#   </div>
+-# </div>
