@@ -1,0 +1,10 @@
+%br
+%h1 #{@user.name}'s Expense Reports
+
+= render 'search_by_year'
+
+= render partial: 'all_reports_table', locals: { expense_reports: @expense_reports }
+
+%br
+= link_to "New Expense Report", new_user_expense_report_path(@user), class: "btn btn-secondary btn-sm"
+= link_to "All Reports", user_expense_reports_path(current_user), class: "btn btn-secondary btn-sm" 
