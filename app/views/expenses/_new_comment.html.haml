@@ -1,0 +1,12 @@
+%h4 Add Comment
+
+= form_for @comment do |f|
+  = f.hidden_field :expense_id
+
+  = f.label :category
+  = f.collection_select (:category_id, @categories, :id, :name, {prompt: "Select Category"}, class: "form-control")
+
+  = f.label :description, class: "form-group"
+  = f.text_area :description, class: "form-control"
+  %br
+  = f.submit "Add Comment", class: "btn btn-secondary btn-sm"
